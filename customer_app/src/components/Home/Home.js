@@ -59,249 +59,303 @@ const Home = () => {
   //      popup.classList.remove("open-popup")
   // }
 
-  return (
-      <div>
-        {/* <marquee direction="right">Select your delicious snack here</marquee> */}
-        <div className="background">
-          {/* <div className="scrolling"> */}
-          <marquee direction="right">
-            <h4>Select your delicious snack here</h4>
-          </marquee>
-          {/* </div> */}
+  const [num, setNum] = useState(0);
+  let incNum = () => {
+    if (num < 10) {
+      setNum(Number(num) + 1);
+    }
+  };
+  let decNum = () => {
+    if (num > 0) {
+      setNum(num - 1);
+    }
+  };
+  let handleChange = (e) => {
+    setNum(e.target.value);
+  };
 
-          <form className="formdata">
-            <label className="m-3 p-4">
-              <h5>Elders</h5>
-              {/* <input
+  return (
+    <div>
+      {/* <marquee direction="right">Select your delicious snack here</marquee> */}
+      <div className="background">
+        {/* <div className="scrolling"> */}
+        <marquee direction="right">
+          <h4>Select your delicious snack here</h4>
+        </marquee>
+        {/* </div> */}
+
+        <form className="formdata">
+          <label className="m-3 p-4">
+            <h5>Elders</h5>
+            {/* <input
                 style={{ width: 250 }}
                 className="form-control"
                 type="dropdown"
                 name="elders"
                 onChange={(e) => setNumberOfElders(e.target.value)}
               /> */}
-              <select
-                style={{ width: 200}}
-                className="form-control"
-                type="dropdown"
-                name="elders"
-                onChange={(e) => setNumberOfElders(e.target.value)}
-              >
-                <option value="N/A">N/A</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </label>
+            <select
+              style={{ width: 200 }}
+              className="form-control"
+              type="dropdown"
+              name="elders"
+              onChange={(e) => setNumberOfElders(e.target.value)}
+            >
+              <option value="N/A">N/A</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </label>
 
-            <label className="m-3 p-4">
-              <h5>Snacks</h5>
-              <select
-                style={{ width: 200}}
-                className="form-control"
-                type="dropdown"
-                name="snacks"
-                onChange={(e) => setSnacksElder(e.target.value)}
-              >
-                <option value="N/A">N/A</option>
-                <option value="Pizza">Pizza</option>
-                <option value="Burger">Burger</option>
-                <option value="Chats">Chats</option>
-              </select>
-            </label>
+          <label className="m-3 p-4">
+            <h5>Snacks</h5>
+            <select
+              style={{ width: 200 }}
+              className="form-control"
+              type="dropdown"
+              name="snacks"
+              onChange={(e) => setSnacksElder(e.target.value)}
+            >
+              <option value="N/A">N/A</option>
+              <option value="Pizza">Pizza</option>
+              <option value="Burger">Burger</option>
+              <option value="Chats">Chats</option>
+            </select>
+          </label>
+          
 
-            <label className="m-3 p-4">
-              <h5>Drinks</h5>
-              <select
-                style={{ width: 200}}
-                className="form-control"
-                type="dropdown"
-                name="drinks"
-                onChange={(e) => setDrinksElder(e.target.value)}
-              >
-                <option value="N/A">N/A</option>
-                <option value="Coffe">Coffe</option>
-                <option value="Tea">Tea</option>
-                <option value="Cool drink">Cool drink</option>
-              </select>
-            </label>
+          <label className="m-3 p-4">
+            <h5>Drinks</h5>
+            <select
+              style={{ width: 200 }}
+              className="form-control"
+              type="dropdown"
+              name="drinks"
+              onChange={(e) => setDrinksElder(e.target.value)}
+            >
+              <option value="N/A">N/A</option>
+              <option value="Coffe">Coffe</option>
+              <option value="Tea">Tea</option>
+              <option value="Cool drink">Cool drink</option>
+            </select>
+          </label>
 
-            <label className="m-3 p-4">
-              <h5>Item count</h5>
-              <select
-                style={{ width: 200}}
-                className="form-control"
-                type="number"
-                name="itemcount"
-                onChange={(e) => setTotalItemElder(e.target.value)}
-              >
-                <option value="N/A">N/A</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </label>
-
-            <div>
-              <h4>Selected data:</h4>
-              <p>Elder: {numberOfElders}</p>
-              <p>Snacks: {snacksElder}</p>
-              <p>Drinks: {drinksElder}</p>
-              <p>Item Count: {totalItemElder}</p>
-            </div>
-            {/* <Link to='/menu' type="button" className="btn btn-success">Submit</Link> */}
-          </form>
-
-          <form className="formdata">
-            <label className="m-3 p-4">
-              <h5>Childrens</h5>
-              <select
-                style={{ width: 200}}
-                className="form-control"
-                type="number"
-                name="elders"
-                onChange={(e) => setNumberOfChild(e.target.value)}
-              >
-                <option value="N/A">N/A</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </label>
-
-            <label className="m-3 p-4">
-              <h5>Snacks</h5>
-              <select
-                style={{ width: 200}}
-                className="form-control"
-                type="dropdown"
-                name="snacks"
-                onChange={(e) => setSnacksChildren(e.target.value)}
-              >
-                <option value="N/A">N/A</option>
-                <option value="Pizza">Pizza</option>
-                <option value="Burger">Burger</option>
-                <option value="Chats">Chats</option>
-              </select>
-            </label>
-
-            <label className="m-3 p-4">
-              <h5>Drinks</h5>
-              <select
-                style={{ width: 200}}
-                className="form-control"
-                type="dropdown"
-                name="drinks"
-                onChange={(e) => setDrinksChildren(e.target.value)}
-              >
-                <option value="N/A">N/A</option>
-                <option value="Coffe">Coffe</option>
-                <option value="Tea">Tea</option>
-                <option value="Cool drink">Cool drink</option>
-              </select>
-            </label>
-
-            <label className="m-3 p-4">
-              <h5>Item count</h5>
-              <select
-                style={{ width: 200}}
-                className="form-control"
-                type="number"
-                name="itemcount"
-                onChange={(e) => setTotalItemChildren(e.target.value)}
-              >
-                <option value="N/A">N/A</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </label>
-
-            <div>
-              <h4>Selected data</h4>
-              <p>Children: {numberOfChild}</p>
-              <p>Snacks: {snacksChildren}</p>
-              <p>Drinks: {drinksChildren}</p>
-              <p>Item Count: {totalItemChildren}</p>
-            </div>
-            {/* <button onClick={Submit} type="button" className="btn btn-success">
-              Submit
-            </button> */}
-            {/* <Link to='/menu' type="button" className="btn btn-success">Submit</Link> */}
-          </form>
+          <label className="m-3 p-4">
+            <h5>Item count</h5>
+            <select
+              style={{ width: 200 }}
+              className="form-control"
+              type="number"
+              name="itemcount"
+              onChange={(e) => setTotalItemElder(e.target.value)}
+            >
+              <option value="N/A">N/A</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </label>
 
           <div>
-            <button type="submit" class="btn btn-success" onClick={() => setVisible(true)}>
-              Submit
-            </button>
-            <Modal
-              isOpen={visible}
-              onRequestClose={() => setVisible(false)}
-              style={{
-                overlay: {
-                  position: "fixed",
-                  zIndex: 1020,
-                  top: 0,
-                  left: 0,
-                  width: "100vw",
-                  height: "100vh",
-                  background: "rgba(255, 255, 255, 0.75)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                },
-                content: {
-                  background: "white",
-                  width: "45rem",
-                  maxWidth: "calc(100vw - 2rem)",
-                  maxHeight: "calc(100vh - 2rem)",
-                  overflowY: "auto",
-                  position: "relative",
-                  border: "1px solid #ccc",
-                  borderRadius: "0.3rem",
-                },
-              }}
+            <h4>Selected data:</h4>
+            <p>Elder: {numberOfElders}</p>
+            <p>Snacks: {snacksElder}</p>
+            <p>Drinks: {drinksElder}</p>
+            <p>Item Count: {totalItemElder}</p>
+          </div>
+          {/* <Link to='/menu' type="button" className="btn btn-success">Submit</Link> */}
+        </form>
+
+        <form className="formdata">
+          <label className="m-3 p-4">
+            <h5>Childrens</h5>
+            <select
+              style={{ width: 200 }}
+              className="form-control"
+              type="number"
+              name="elders"
+              onChange={(e) => setNumberOfChild(e.target.value)}
             >
-              <h1>Success</h1>
-              <p>
-                Your Order has been submitted! <br />
-                Thank you.{" "}
-              </p>
-              <button type="button" class="btn btn-success" onClick={() => setVisible(false)}>
-                OK
-              </button>
-            </Modal>
+              <option value="N/A">N/A</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+
+          <label className="m-3 p-4">
+            <h5>Snacks</h5>
+            <select
+              style={{ width: 200 }}
+              className="form-control"
+              type="dropdown"
+              name="snacks"
+              onChange={(e) => setSnacksChildren(e.target.value)}
+            >
+              <option value="N/A">N/A</option>
+              <option value="Pizza">Pizza</option>
+              <option value="Burger">Burger</option>
+              <option value="Chats">Chats</option>
+            </select>
+          </label>
+
+          <label className="m-3 p-4">
+            <h5>Drinks</h5>
+            <select
+              style={{ width: 200 }}
+              className="form-control"
+              type="dropdown"
+              name="drinks"
+              onChange={(e) => setDrinksChildren(e.target.value)}
+            >
+              <option value="N/A">N/A</option>
+              <option value="Coffe">Coffe</option>
+              <option value="Tea">Tea</option>
+              <option value="Cool drink">Cool drink</option>
+            </select>
+          </label>
+
+          <label className="m-3 p-4">
+            <h5>Item count</h5>
+            <select
+              style={{ width: 200 }}
+              className="form-control"
+              type="number"
+              name="itemcount"
+              onChange={(e) => setTotalItemChildren(e.target.value)}
+            >
+              <option value="N/A">N/A</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+
+          <div>
+            <h4>Selected data</h4>
+            <p>Children: {numberOfChild}</p>
+            <p>Snacks: {snacksChildren}</p>
+            <p>Drinks: {drinksChildren}</p>
+            <p>Item Count: {totalItemChildren}</p>
+          </div>
+          {/* <button onClick={Submit} type="button" className="btn btn-success">
+              Submit
+            </button> */}
+          {/* <Link to='/menu' type="button" className="btn btn-success">Submit</Link> */}
+        </form>
+
+        <div>
+          <button
+            type="submit"
+            class="btn btn-success"
+            onClick={() => setVisible(true)}
+          >
+            Submit
+          </button>
+          <Modal
+            isOpen={visible}
+            onRequestClose={() => setVisible(false)}
+            style={{
+              overlay: {
+                position: "fixed",
+                zIndex: 1020,
+                top: 0,
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                background: "rgba(255, 255, 255, 0.75)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              },
+              content: {
+                background: "white",
+                width: "45rem",
+                maxWidth: "calc(100vw - 2rem)",
+                maxHeight: "calc(100vh - 2rem)",
+                overflowY: "auto",
+                position: "relative",
+                border: "1px solid #ccc",
+                borderRadius: "0.3rem",
+              },
+            }}
+          >
+            <h1>Success</h1>
+            <p>
+              Your Order has been submitted! <br />
+              Thank you.{" "}
+            </p>
+            <button
+              type="button"
+              class="btn btn-success"
+              onClick={() => setVisible(false)}
+            >
+              OK
+            </button>
+          </Modal>
+        </div>
+      </div>
+
+     
+     <form action=""> <div className="col-xl-1">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              onClick={decNum}
+            >
+              -
+            </button>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            value={num}
+            onChange={handleChange}
+          />
+          <div class="input-group-prepend">
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              onClick={incNum}
+            >
+              +
+            </button>
           </div>
         </div>
       </div>
-  
+      </form>
+    </div>
   );
 };
 

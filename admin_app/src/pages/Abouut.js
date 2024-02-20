@@ -1,22 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
 
+function Abouut() {
+    
+const [count, setCount] = useState(0);
+handleIncrement = () => {
+  setCount(count + 1);
+}
+handleDecrement = () => {
+  setCount(count + 1);
+}
 
-class Abouut extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      Childrens: '',
-      snacks: '',
-      drinks: '',
-      totalcount: '',
-    };
+   
+  
+    return (
+      
+      <div className='d-flex justify-content-center align-items-center' style={{height: "100px"}}>
+<div>
+  <h1 className='text-center' style={{fontSize: "70px"}}>{count}</h1>
+  <div className='d-flex'>
+    <button onClick={handleIncrement} className='btn btn-success me-3'>+</button>
+    <button onClick={handleDecrement} className='btn btn-danger me-3'>-</button>
+     </div>
+</div>
+      </div>
+    );
   }
+  
+  
+export default Abouut
 
-  handleInputChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
+
+
+// class Abouut extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       Childrens: '',
+//       snacks: '',
+//       drinks: '',
+//       totalcount: '',
+//     };
+//   }
+
+//   handleInputChange = (event) => {
+//     this.setState({
+//       [event.target.name]: event.target.value
+//     });
+//   }
+
+
+  // const handleItemCountChange = (newCount) => {
+  //   setItemCount(newCount);
+  // };
+  
+  // const handleUserCountChange = (newCount) => {
+  //   setUserCount(newCount);
+  // };
 
 //   render () {
 //   return (
@@ -76,11 +115,11 @@ class Abouut extends React.Component {
 
 // import React from 'react'
 
-  render () {
-  return (
-    <div>
+  // render () {
+  // return (
+
       
-      <form className="formdata">
+      {/* <form className="formdata">
           
           <label className="m-3 p-4">
             <h5>Childrens</h5>
@@ -124,9 +163,9 @@ class Abouut extends React.Component {
           <p>Snacks: {this.state.drinks}</p>
           <p>Snacks: {this.state.itemcount}</p>
         </div>
-  </form>
+  </form> */}
       
-    </div>
+  
 
 
 
@@ -136,10 +175,10 @@ class Abouut extends React.Component {
 
 
 
-    )
-  }
-}
+//     )
+//   }
+// }
 
-export default Abouut
+// export default Abouut
 
 

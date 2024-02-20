@@ -13,6 +13,7 @@ const Menu = () => {
   const [orderStatus, setOrderStatus] = useState([]);
   // const [statusform, setStatusform] = useState([]);
   // const [myValue, setMyValue] = useState("");
+  const [food, setFood] = useState("");
 
   useEffect(() => {
     axios
@@ -126,9 +127,19 @@ const [post, setPost] = useState({
 
 
 
+
+              <div>
+                <input type="text"
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setFood(value);
+                }} ></input>
+                {food}
+              </div>
+
             
                 
-            
+          
 
             {/* <div>
       <select

@@ -4,7 +4,7 @@ import "./Home.css";
 // import { Link } from "react-router-dom";
 import Layout from "../components/Layouts/Layout";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 
 const Home = () => {
@@ -60,6 +60,13 @@ const Home = () => {
   //      popup.classList.remove("open-popup")
   // }
 
+//   const [count, setCount] = useState(0);
+// handleIncrement = () => {
+//   setCount(count + 1);
+// }
+// handleDecrement = () => {
+//   setCount(count + 1);
+// }
 
   return (
     <Layout>
@@ -104,6 +111,7 @@ const Home = () => {
                 <option value="10">10</option>
               </select>
             </label>
+
 
             <label className="m-3 p-4">
               <h5>Snacks</h5>
@@ -259,7 +267,7 @@ const Home = () => {
             <button onClick={Submit} type="button" className="btn btn-success">
               Submit
             </button>
-            {/* <Link to='/menu' type="button" className="btn btn-success">Submit</Link> */}
+         {/* <Link to='/menu' type="button" className="btn btn-success">Submit</Link> */}
           </form>
 
           <div>
@@ -304,6 +312,17 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+
+      {/* <div className='d-flex justify-content-center align-items-center' style={{height: "100px"}}>
+<div>
+  <h1 className='text-center' style={{fontSize: "70px"}}>{count}</h1>
+  <div className='d-flex'>
+    <button onClick={handleIncrement()} className='btn btn-success me-3'>+</button>
+    <button onClick={handleDecrement()} className='btn btn-danger me-3'>-</button>
+     </div>
+</div>
+      </div> */}
     </Layout>
   );
 };
