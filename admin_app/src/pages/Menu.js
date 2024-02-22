@@ -80,12 +80,15 @@ const [post, setPost] = useState({
               <tr className="table-data">
                 <th scope="row">Orderid</th>
                 <th scope="row">Persons</th>
-                <th scope="row">Num of Elders</th>
-                <th scope="row">Snacks</th>
-                <th scope="row">Drinks</th>
-                <th scope="row">Total count</th>
+                <th scope="row">Num of persons</th>
+                <th scope="row">Pizza</th>
+                <th scope="row">Burger</th>
+                <th scope="row">Chats</th>
+                <th scope="row">Coffe</th>
+                <th scope="row">Tea</th>
+                <th scope="row">Cooldrink</th>
                 <th scope="row">Status</th>
-                <th scope="row">ordered Time</th>
+                <th scope="row">Ordered time</th>
               </tr>
             </thead>
 
@@ -105,9 +108,16 @@ const [post, setPost] = useState({
                     </td>
                     <td>Elders</td>
                     <td>{item.numberOfElders}</td>
+                    <td>{item.pizzaCount}</td>
+                    <td>{item.burgerCount}</td>
+                    <td>{item.chatCount}</td>
+                    <td>{item.coffeCount}</td>
+                    <td>{item.teaCount}</td>
+                    <td>{item.coolDrinkCount}</td>
+                    {/* <td>{item.numberOfElders}</td>
                     <td>{item.snacksElder}</td>
                     <td>{item.drinksElder}</td>
-                    <td>{item.totalItemElder}</td>
+                    <td>{item.totalItemElder}</td> */}
                     <td className="status-btn p-5 m-1" rowSpan={2} scope="row">
 
 
@@ -126,8 +136,7 @@ const [post, setPost] = useState({
                 </div>
 
 
-
-
+{/* 
               <div>
                 <input type="text"
                 onChange={(event) => {
@@ -135,7 +144,7 @@ const [post, setPost] = useState({
                   setFood(value);
                 }} ></input>
                 {food}
-              </div>
+              </div> */}
 
             
                 
@@ -250,10 +259,17 @@ const [post, setPost] = useState({
                   <tr key={i}>
                     {/* <td scope="row">{i + 1}</td> */}
                     <td>Childrens</td>
-                    <td>{item.numberOfChild}</td>
+                    {/* <td>{item.numberOfChild}</td>
                     <td>{item.snacksChildren}</td>
                     <td>{item.drinksChildren}</td>
-                    <td>{item.totalItemChildren}</td>
+                    <td>{item.totalItemChildren}</td> */}
+                    <td>{item.numberOfChild}</td>
+                    <td>{item.pizzaCount1}</td>
+                    <td>{item.burgerCount1}</td>
+                    <td>{item.chatCount1}</td>
+                    <td>{item.coffeCount1}</td>
+                    <td>{item.teaCount1}</td>
+                    <td>{item.coolDrinkCount1}</td>
                   </tr>
                 </tbody>
               );

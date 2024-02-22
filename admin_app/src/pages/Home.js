@@ -168,13 +168,13 @@ const Home = () => {
               </select>
             </label>
 
-            <div>
+            {/* <div>
               <h4>Selected data:</h4>
               <p>Elder: {numberOfElders}</p>
               <p>Snacks: {snacksElder}</p>
               <p>Drinks: {drinksElder}</p>
               <p>Item Count: {totalItemElder}</p>
-            </div>
+            </div> */}
             {/* <Link to='/menu' type="button" className="btn btn-success">Submit</Link> */}
           </form>
 
@@ -257,13 +257,13 @@ const Home = () => {
               </select>
             </label>
 
-            <div>
+            {/* <div>
               <h4>Selected data</h4>
               <p>Children: {numberOfChild}</p>
               <p>Snacks: {snacksChildren}</p>
               <p>Drinks: {drinksChildren}</p>
               <p>Item Count: {totalItemChildren}</p>
-            </div>
+            </div> */}
             <button onClick={Submit} type="button" className="btn btn-success">
               Submit
             </button>

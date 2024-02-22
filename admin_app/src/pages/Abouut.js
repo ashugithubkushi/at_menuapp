@@ -1,184 +1,139 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
-function Abouut() {
-    
-const [count, setCount] = useState(0);
-handleIncrement = () => {
-  setCount(count + 1);
-}
-handleDecrement = () => {
-  setCount(count + 1);
-}
+const Abouut = () => {
+  // const navigate = useNavigate();
 
-   
-  
-    return (
-      
-      <div className='d-flex justify-content-center align-items-center' style={{height: "100px"}}>
-<div>
-  <h1 className='text-center' style={{fontSize: "70px"}}>{count}</h1>
-  <div className='d-flex'>
-    <button onClick={handleIncrement} className='btn btn-success me-3'>+</button>
-    <button onClick={handleDecrement} className='btn btn-danger me-3'>-</button>
-     </div>
-</div>
-      </div>
-    );
-  }
-  
-  
-export default Abouut
+  const [pizzaCount, setPizzaCount] = useState(0);
+  const [burgerCount, setBurgerCount] = useState(0);
+  const [chatCount, setChatCount] = useState(0);
 
+  const handleCountIncrement = () => {
+    setPizzaCount(pizzaCount + 1);
+    setBurgerCount(burgerCount + 1);
+    setChatCount(chatCount + 1);
+  };
 
+  const handleCountDecrement = () => {
+    setPizzaCount(pizzaCount - 1);
+    setBurgerCount(burgerCount - 1);
+    setChatCount(chatCount - 1);
+  };
 
-// class Abouut extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       Childrens: '',
-//       snacks: '',
-//       drinks: '',
-//       totalcount: '',
-//     };
-//   }
-
-//   handleInputChange = (event) => {
-//     this.setState({
-//       [event.target.name]: event.target.value
-//     });
-//   }
-
-
-  // const handleItemCountChange = (newCount) => {
-  //   setItemCount(newCount);
-  // };
-  
-  // const handleUserCountChange = (newCount) => {
-  //   setUserCount(newCount);
+  // const Submit = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .post("http://localhost:3000/createOrder", {
+  //       pizzaCount,
+  //       burgerCount,
+  //       chatCount
+  //     })
+  //     .then((result) => {
+  //       console.log(result);
+  //       navigate("/menu");
+  //     })
+  //     .catch((err) => console.log(err));
   // };
 
-//   render () {
-//   return (
-//       <div>
-//         <form action="">
-          
-//           <label className="m-3 p-4">
-//             <h5>Elders</h5>
-//             <input type="number" name="elders" onChange={this.handleInputChange} />
-//           </label>
-
-       
-
-//         <label className="m-3 p-4">
-//         <h5>Snacks</h5>
-//           <select type="dropdown" name="snacks" onChange={this.handleInputChange}>
-//               <option value="N/A">N/A</option>
-//               <option value="Pizza">Pizza</option>
-//               <option value="Burger">Burger</option>
-//               <option value="Chats">Chats</option>
-//               </select>
-//         </label>
-
-//         <label className="m-3 p-4">
-//             <h5>Drinks</h5>
-//             <select type="dropdown" name="drinks" onChange={this.handleInputChange}>
-//               <option value="N/A">N/A</option>
-//               <option value="Coffe">Coffe</option>
-//               <option value="Tea">Tea</option>
-//               <option value="Cool drink">Cool drink</option>
-//               </select>
-//           </label>
-
-
-
-//           <label className="m-3 p-4">
-//             <h5>Item count</h5>
-//             <input type="number" name="itemcount" onChange={this.handleInputChange} />
-//           </label>
-//              </form>
-
-//         <div>
-//           <h2>Your Input:</h2>
-//           <p>Elder: {this.state.elders}</p>
-//           <p>Snacks: {this.state.snacks}</p>
-//           <p>Snacks: {this.state.drinks}</p>
-//           <p>Snacks: {this.state.itemcount}</p>
-//         </div>
-
-//         </div>
-//   )
-// }
-// }
-
-// export default Abouut
-
-
-// import React from 'react'
-
-  // render () {
-  // return (
-
-      
-      {/* <form className="formdata">
-          
-          <label className="m-3 p-4">
-            <h5>Childrens</h5>
-            <input type="number" name="elders" onChange={this.handleInputChange} />
-          </label>
-
-       
-
-        <label className="m-3 p-4">
-        <h5>Snacks</h5>
-          <select type="dropdown" name="snacks" onChange={this.handleInputChange}>
-              <option value="N/A">N/A</option>
-              <option value="Pizza">Pizza</option>
-              <option value="Burger">Burger</option>
-              <option value="Chats">Chats</option>
-              </select>
-        </label>
-
-        <label className="m-3 p-4">
-            <h5>Drinks</h5>
-            <select type="dropdown" name="drinks" onChange={this.handleInputChange}>
-              <option value="N/A">N/A</option>
-              <option value="Coffe">Coffe</option>
-              <option value="Tea">Tea</option>
-              <option value="Cool drink">Cool drink</option>
-              </select>
-          </label>
-
-
-
-          <label className="m-3 p-4">
-            <h5>Item count</h5>
-            <input type="number" name="itemcount" onChange={this.handleInputChange} />
-          </label>
-             
-
-        <div>
-          <h2>Selected data</h2>
-          <p>Children: {this.state.childrens}</p>
-          <p>Snacks: {this.state.snacks}</p>
-          <p>Snacks: {this.state.drinks}</p>
-          <p>Snacks: {this.state.itemcount}</p>
+  return (
+    <div>
+      <table className="border">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+      <div className="d-flex">
+        <td>Pizza</td>
+          <td className="d-flex"><button className="btn" name="" onClick={handleCountDecrement}>
+            -
+          </button>
+          <option
+            value="Pizza"
+            onChange={(e) => setPizzaCount(e.target.value)}
+          >{`${pizzaCount}`}</option>
+          <button className="btn" onClick={handleCountIncrement}>
+            +
+          </button></td>
+          <td><p> = {pizzaCount}</p></td>
         </div>
-  </form> */}
-      
-  
+
+
+        <div className="d-flex">
+        <td>Burger</td>
+        <td className="d-flex"><button className="btn" onClick={handleCountDecrement}>
+            -
+          </button>
+          <option
+            value="Burger"
+            onChange={(e) => setBurgerCount(e.target.value)}
+          >{`${burgerCount}`}</option>
+          <button className="btn" onClick={handleCountIncrement}>
+            +
+          </button></td>
+          <td><p> = {burgerCount}</p></td>
+        </div>
+
+
+        <div className="d-flex">
+        <td>Chats</td>
+        <div>
+        <td className="d-flex"><button 
+          // style={{ backgroundColor: ""}}
+          className="btn" onClick={handleCountDecrement}>
+            -
+          </button>
+          <td>
+            <option
+              value="Chats"
+              onChange={(e) => setChatCount(e.target.value)}
+            >{`${chatCount}`}</option>
+          </td>
+          <button className="btn" onClick={handleCountIncrement}>
+            +
+          </button></td>
+          </div>
+          <p> = {chatCount}</p>
+        </div>
+        </tbody>
+      </table>
 
 
 
+      <select className="dropdown" name="chats">
+        <option value="N/A"></option>
+       <option value="Chats" onChange={(e) => setChatCount(e.target.value)}>{`Pizza - ${chatCount}`}</option>
+       <option value="Chats" onChange={(e) => setChatCount(e.target.value)}>{`Burger - ${chatCount}`}</option>
+       <option value="Chats" onChange={(e) => setChatCount(e.target.value)}>{`Chats - ${chatCount}`}</option>
+       </select> 
 
+      {/* <div>
+        <table>
+          <thead>
+            <tr>
+              <th>a</th>
+              <th>SnackCount</th>
+            </tr>
+          </thead>
 
+          <tbody>
+            {
+              data.map((val , i) => {
+                <tr>
+                  <td>{val.a}</td>
+                  <td>{val.x}</td>
+                </tr>
+              })
+            }
+          </tbody>
+        </table>
+      </div> */}
+    </div>
+  );
+};
 
-
-
-
-//     )
-//   }
-// }
-
-// export default Abouut
-
-
+export default Abouut;

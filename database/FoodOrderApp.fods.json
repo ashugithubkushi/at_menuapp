@@ -1,97 +1,69 @@
 [{
   "_id": {
-    "$oid": "65ce37947cee2ddd03f5e3f4"
-  },
-  "numberOfElders": 3,
-  "snacksElder": "Chats",
-  "drinksElder": "Tea",
-  "totalItemElder": 2,
-  "numberOfChild": 2,
-  "snacksChildren": "Chats",
-  "drinksChildren": "Cool drink",
-  "totalItemChildren": 1,
-  "orderDateTime": {
-    "$date": "2024-02-15T16:11:00.157Z"
-  },
-  "__v": 0,
-  "status": "Pending"
-},
-{
-  "_id": {
-    "$oid": "65ceee58cb8c409f732f5b3f"
-  },
-  "numberOfElders": 2,
-  "snacksElder": "Burger",
-  "drinksElder": "Tea",
-  "totalItemElder": 3,
-  "numberOfChild": 7,
-  "snacksChildren": "Pizza",
-  "drinksChildren": "Cool drink",
-  "totalItemChildren": 8,
-  "orderDateTime": {
-    "$date": "2024-02-16T05:10:48.559Z"
-  },
-  "__v": 0,
-  "status": "In progress"
-},
-{
-  "_id": {
-    "$oid": "65d2ea2cd75a4d13d96f0aab"
+    "$oid": "65d72b190d3bf059e6a70538"
   },
   "numberOfElders": 4,
-  "snacksElder": "Burger",
-  "drinksElder": "Coffe",
-  "totalItemElder": 2,
+  "pizzaCount": 1,
+  "burgerCount": 2,
+  "chatCount": 3,
+  "coffeCount": 4,
+  "teaCount": 5,
+  "coolDrinkCount": 6,
   "numberOfChild": 2,
-  "snacksChildren": "Burger",
-  "drinksChildren": "Tea",
-  "totalItemChildren": 3,
+  "pizzaCount1": 1,
+  "burgerCount1": 3,
+  "chatCount1": 1,
+  "coffeCount1": 8,
+  "teaCount1": 4,
+  "coolDrinkCount1": 2,
   "orderDateTime": {
-    "$date": "2024-02-19T05:42:04.304Z"
+    "$date": "2024-02-22T11:08:09.092Z"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "65d2eb34d75a4d13d96f0abd"
+    "$oid": "65d734b70d3bf059e6a70551"
+  },
+  "numberOfElders": 6,
+  "pizzaCount": 3,
+  "burgerCount": 4,
+  "chatCount": 6,
+  "coffeCount": 4,
+  "teaCount": 2,
+  "coolDrinkCount": 3,
+  "numberOfChild": 4,
+  "pizzaCount1": 3,
+  "burgerCount1": 4,
+  "chatCount1": 1,
+  "coffeCount1": 4,
+  "teaCount1": 2,
+  "coolDrinkCount1": 6,
+  "orderDateTime": {
+    "$date": "2024-02-22T11:49:11.002Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d7392b0d3bf059e6a70559"
   },
   "numberOfElders": 2,
-  "snacksElder": "Pizza",
-  "drinksElder": "Coffe",
-  "totalItemElder": 2,
-  "numberOfChild": 6,
-  "snacksChildren": "Pizza",
-  "drinksChildren": "Tea",
-  "totalItemChildren": 8,
+  "pizzaCount": 2,
+  "burgerCount": 3,
+  "chatCount": 1,
+  "coffeCount": 7,
+  "teaCount": 3,
+  "coolDrinkCount": 3,
+  "numberOfChild": 3,
+  "pizzaCount1": 5,
+  "burgerCount1": 2,
+  "chatCount1": 2,
+  "coffeCount1": 3,
+  "teaCount1": 4,
+  "coolDrinkCount1": 1,
   "orderDateTime": {
-    "$date": "2024-02-19T05:46:28.788Z"
-  },
-  "__v": 0,
-  "status": "Ordered"
-},
-{
-  "_id": {
-    "$oid": "65d301c2d75a4d13d96f0acb"
-  },
-  "snacksElder": "",
-  "drinksElder": "",
-  "snacksChildren": "",
-  "drinksChildren": "",
-  "orderDateTime": {
-    "$date": "2024-02-19T07:22:42.032Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "65d301f9d75a4d13d96f0acd"
-  },
-  "snacksElder": "",
-  "drinksElder": "",
-  "snacksChildren": "",
-  "drinksChildren": "",
-  "orderDateTime": {
-    "$date": "2024-02-19T07:23:37.168Z"
+    "$date": "2024-02-22T12:08:11.686Z"
   },
   "__v": 0
 }]
