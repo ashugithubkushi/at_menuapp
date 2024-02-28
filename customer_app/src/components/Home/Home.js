@@ -10,14 +10,14 @@ const Home = () => {
   const navigate = useNavigate();
 
   // const [numberOfElders, setNumberOfElders] = useState();
-  const [snacksElder, setSnacksElder] = useState("");
-  const [drinksElder, setDrinksElder] = useState("");
-  const [totalItemElder, setTotalItemElder] = useState();
+  // const [snacksElder, setSnacksElder] = useState("");
+  // const [drinksElder, setDrinksElder] = useState("");
+  // const [totalItemElder, setTotalItemElder] = useState();
 
   // const [numberOfChild, setNumberOfChild] = useState();
-  const [snacksChildren, setSnacksChildren] = useState("");
-  const [drinksChildren, setDrinksChildren] = useState("");
-  const [totalItemChildren, setTotalItemChildren] = useState();
+  // const [snacksChildren, setSnacksChildren] = useState("");
+  // const [drinksChildren, setDrinksChildren] = useState("");
+  // const [totalItemChildren, setTotalItemChildren] = useState();
 
   const [visible, setVisible] = useState(false);
 
@@ -84,12 +84,12 @@ const Home = () => {
   const [teaCount, setTeaCount] = useState(0);
   const [coolDrinkCount, setCoolDrinkCount] = useState(0);
 
-  // console.log("pizzaCount", pizzaCount);
-  // console.log("burgerCount", burgerCount);
-  // console.log("chatCount", chatCount);
-  // console.log("coffeCount", coffeCount);
-  // console.log("teaCount", teaCount);
-  // console.log("coolDrinkCount", coolDrinkCount);
+  console.log("pizzaCount", pizzaCount);
+  console.log("burgerCount", burgerCount);
+  console.log("chatCount", chatCount);
+  console.log("coffeCount", coffeCount);
+  console.log("teaCount", teaCount);
+  console.log("coolDrinkCount", coolDrinkCount);
 
 
   const PizzaCountIncre = () => {
@@ -139,12 +139,12 @@ const Home = () => {
   const [teaCount1, setTeaCount1] = useState(0);
   const [coolDrinkCount1, setCoolDrinkCount1] = useState(0);
 
-  // console.log("pizzaCount1", pizzaCount1);
-  // console.log("burgerCount1", burgerCount1);
-  // console.log("chatCount1", chatCount1);
-  // console.log("coffeCount1", coffeCount1);
-  // console.log("teaCount1", teaCount1);
-  // console.log("coolDrinkCount1", coolDrinkCount1);
+  console.log("pizzaCount1", pizzaCount1);
+  console.log("burgerCount1", burgerCount1);
+  console.log("chatCount1", chatCount1);
+  console.log("coffeCount1", coffeCount1);
+  console.log("teaCount1", teaCount1);
+  console.log("coolDrinkCount1", coolDrinkCount1);
 
   const PizzaCountIncre1 = () => {
     setPizzaCount1(pizzaCount1 + 1);
@@ -186,18 +186,37 @@ const Home = () => {
 
   return (
     <div>
-       <div className="background ">
+
+{/* ...  */}
+<header className="header">
+        <h1>Healthy Snack</h1>
+        <nav>
+            {/* <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul> */}
+        </nav>
+    </header>
+
+       <div className="background">
+        <img src="C:\Users\KITS\at_menuapp\customer_app\src\assets\images\12-124086_817988-title-food-burger-french-fries-wallpaper-burger.jpg" alt="" />
         <div>
           {/* <div className="scrolling"> */}
-          <marquee direction="right">
-            <h4>Select your delicious snack here</h4>
-          </marquee>
+          {/* <div className="healthy-snack">Healthy Snack</div> <br /> <br /> */}
+     {/* <div className="select-your-delicious">
+    //     Select your delicious snack here
+    //   </div> */}
+     <marquee  direction="right" className="select-your-delicious">
+             <h4>Select your delicious snack here</h4>
+           </marquee>
         </div>
 
+        <section class="features">
         <div className="d-flex">
           {/* <form className="formdata"> */}
           <label className="m-3 p-4">
-            <h2>Elders</h2>
+            <h2 className="color">Elders</h2>
             {/* <div className=" m-3 p-4"><h2>Snacks</h2></div> */}
 
             {/* <input
@@ -230,7 +249,7 @@ const Home = () => {
           </label>
 
           <div className=" m-3 p-4">
-            <h2>Snacks</h2>
+            <h2 className="color">Snacks</h2>
             <div className="form-control">
               <div className="d-flex">
                 <th>Pizza</th>
@@ -282,7 +301,7 @@ const Home = () => {
           </div>
 
           <div className=" m-3 p-4">
-            <h2>Beverages</h2>
+            <h2 className="color">Beverages</h2>
             <div className="form-control">
               <div className="d-flex">
                 <th>Coffe</th>
@@ -332,13 +351,16 @@ const Home = () => {
           </div>
           <div />
         </div>
+        </section>
 
+
+        <section>
         {/* children */}
 
         <div className="d-flex">
           {/* <form className="formdata"> */}
           <label className="m-3 p-4">
-            <h2>Childrens</h2>
+            <h2 className="color">Childrens</h2>
             {/* <div className=" m-3 p-4"><h2>Snacks</h2></div> */}
 
             {/* <input
@@ -371,7 +393,7 @@ const Home = () => {
           </label>
 
           <div className=" m-3 p-4">
-            <h2>Snacks</h2>
+            <h2 className="color">Snacks</h2>
             <div className="form-control">
               <div className="d-flex">
                 <th>Pizza</th>
@@ -423,7 +445,7 @@ const Home = () => {
           </div>
 
           <div className=" m-3 p-4">
-            <h2>Beverages</h2>
+            <h2 className="color">Beverages</h2>
             <div className="form-control">
               <div className="d-flex">
                 <th>Coffe</th>
@@ -474,21 +496,28 @@ const Home = () => {
           <div />
           </div>
 
-<button onClick={Submit} type="button" className="btn btn-success">
-              Submit
-            </button>
-        {/* <button to='/' type="button" className="btn btn-success">Submit</button> */}
+          
 
-        
-
-        <button
+          </section>
+          <button
           type="submit"
-          className="btn btn-success"
+          className="btn btn-success float-end"
           style={{ marginLeft: "10px" }}
           onClick={() => setVisible(true)}
         >
           Submit
         </button>
+
+
+
+{/* <button onClick={Submit} type="button" className="btn btn-success">
+              Submit
+            </button>
+        <button to='/' type="button" className="btn btn-success">Submit</button> */}
+
+        
+
+        
       </div>
 
       <div>
@@ -534,7 +563,13 @@ const Home = () => {
           </button>
         </Modal>
       </div>
+      <footer>
+        <p>&copy; Website By </p>
+        {/*2024 My Website */}
+    </footer>
     </div>
+
+    
   );
 };
 
