@@ -628,3 +628,309 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
+// childrens data 635
+<div className="d-flex">
+          {/* <form className="formdata"> */}
+          <label className="m-3 p-4">
+            <h2 className="color">Childrens</h2>
+            
+
+            <select
+              style={{ width: 150, height: 50 }}
+              className="form-control d-flex"
+              type="dropdown"
+              name="elders"
+              onChange={(e) => setNumberOfChild(e.target.value)}
+            >
+              <option value="N/A">N/A</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+
+          <div className=" m-3 p-4">
+            <h2 className="color">Snacks</h2>
+            <div className="form-control">
+              <div className="d-flex">
+                <th>Pizza</th>
+                <button className="btn" name="" onClick={PizzaCountDecre1}>
+                  -
+                </button>
+                <option
+                  value="Pizza"
+                  onChange={(e) => setPizzaCount1(e.target.value)}
+                >{`${pizzaCount1}`}</option>
+                <button className="btn" onClick={PizzaCountIncre1}>
+                  +
+                </button>
+                {/* <p> = {pizzaCount1}</p> */}
+              </div>
+
+              <div className="d-flex">
+                <th>Burger</th>
+                <button className="btn" name="" onClick={BurgerCountDecre1}>
+                  -
+                </button>
+                <option
+                  value="Burger"
+                  onChange={(e) => burgerCount1(e.target.value)}
+                >{`${burgerCount1}`}</option>
+                <button className="btn" onClick={BurgerCountIncre1}>
+                  +
+                </button>
+                {/* <p> = {burgerCount1}</p> */}
+              </div>
+
+              <div className="d-flex">
+                <th>Chats</th>
+                <button className="btn" onClick={ChatCountDecre1}>
+                  -
+                </button>
+                <td>
+                  <option
+                    value="Chats"
+                    onChange={(e) => setChatCount1(e.target.value)}
+                  >{`${chatCount1}`}</option>
+                </td>
+                <button className="btn" onClick={ChatCountIncre1}>
+                  +
+                </button>
+                {/* <p> = {chatCount1}</p> */}
+              </div>
+            </div>
+          </div>
+
+          <div className=" m-3 p-4">
+            <h2 className="color">Beverages</h2>
+            <div className="form-control">
+              <div className="d-flex">
+                <th>Coffe</th>
+                <button className="btn" name="" onClick={CoffeCountDecre1}>
+                  -
+                </button>
+                <option
+                  value="Coffe"
+                  onChange={(e) => coffeCount1(e.target.value)}
+                >{`${coffeCount1}`}</option>
+                <button className="btn" onClick={CoffeCountIncre1}>
+                  +
+                </button>
+                {/* <p> = {coffeCount1}</p> */}
+              </div>
+
+              <div className="d-flex">
+                <th>Tea</th>
+                <button className="btn" name="" onClick={TeaCountDecre1}>
+                  -
+                </button>
+                <option
+                  value="Tea"
+                  onChange={(e) => teaCount1(e.target.value)}
+                >{`${teaCount1}`}</option>
+                <button className="btn" onClick={TeaCountIncre1}>
+                  +
+                </button>
+                {/* <p> = {teaCount1}</p> */}
+              </div>
+
+              <div className="d-flex">
+                <th>Cooldrink</th>
+                <button className="btn" name="" onClick={CoolDrinkCountDecre1}>
+                  -
+                </button>
+                <option
+                  value="Cool Drink"
+                  onChange={(e) => coolDrinkCount1(e.target.value)}
+                >{`${coolDrinkCount1}`}</option>
+                <button className="btn" onClick={CoolDrinkCountIncre1}>
+                  +
+                </button>
+                {/* <p> = {coolDrinkCount1}</p> */}
+              </div>
+            </div>
+          </div>
+          <div />
+          </div>
+
+
+
+
+
+
+409
+<section class="features d-flex">
+            {/* <form className="formdata"> */}
+            <label className="m-3 p-4">
+            <h2 className="color">Person</h2>
+
+              {/* <h2 className="color">Elders</h2> */}
+              {/* <div className=" m-3 p-4"><h2>Snacks</h2></div> */}
+              <select
+                style={{ width: 230, height: 40 }}
+                className="form-control d-flex"
+                type="dropdown"
+                name="elders"
+                onChange={(e) => setNumberOfElders(e.target.value)}
+              >
+                <option value="N/A">N/A</option>
+                <option value="Elders">Elders</option>
+                <option value="Childrens">Childrens</option>
+              </select>
+            </label>
+
+            {/* added elders and childerns in one row */}
+            <label className="m-3 p-4">
+              {/* <h2 className="color">Elders</h2> */}
+              <h2 className="color">Count</h2>
+
+              {/* <div className=" m-3 p-4"><h2>Snacks</h2></div> */}
+              <select
+                style={{ width: 230, height: 40 }}
+                className="form-control d-flex"
+                type="dropdown"
+                name="elders"
+                onChange={(e) => setNumberOfElders(e.target.value)}
+              >
+                <option value="N/A">N/A</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </label>
+
+
+
+            
+            <div className="m-3 p-4">
+              <h2 className="color">Snacks</h2>
+              <div className="items p-3">
+                <div className="d-flex">
+                  <th className="m-3">Pizza</th>
+                  <button className="btn btn-success m-2" name="" onClick={PizzaCountDecre}>
+                    -
+                  </button> <br />
+                  <option
+                    value="Pizza"
+                    onChange={(e) => setPizzaCount(e.target.value)}
+                  >{`${pizzaCount}`}</option> <br />
+                  <button className="btn btn-success m-2" onClick={PizzaCountIncre}>
+                    +
+                  </button>
+                  {/* <p> = {pizzaCount}</p> */}
+                </div>
+
+                <div className="d-flex">
+                  <th className="m-3">Burger</th>
+                  <button className="btn btn-success m-2" name="" onClick={BurgerCountDecre}>
+                    -
+                  </button>
+                  <option
+                    value="Burger"
+                    onChange={(e) => burgerCount(e.target.value)}
+                  >{`${burgerCount}`}</option>
+                  <button className="btn btn-success m-2" onClick={BurgerCountIncre}>
+                    +
+                  </button>
+                  {/* <p> = {burgerCount}</p> */}
+                </div>
+
+                <div className="d-flex">
+                  <th className="m-3">Chats</th>
+                  <button className="btn btn-success m-2" onClick={ChatCountDecre}>
+                    -
+                  </button>
+                  <td>
+                    <option
+                      value="Chats"
+                      onChange={(e) => setChatCount(e.target.value)}
+                    >{`${chatCount}`}</option>
+                  </td>
+                  <button className="btn btn-success m-2" onClick={ChatCountIncre}>
+                    +
+                  </button>
+                  {/* <p> = {chatCount}</p> */}
+                </div>
+              </div>
+            </div>
+
+            <div className="m-3 p-4">
+              <h2 className="color">Beverages</h2>
+              <div className="items p-3">
+                <div className="d-flex">
+                  <th  className="m-3">Coffe</th>
+                  <button className="btn btn-success m-2" name="" onClick={CoffeCountDecre}>
+                    -
+                  </button>
+                  <option
+                    value="Coffe"
+                    onChange={(e) => coffeCount(e.target.value)}
+                  >{`${coffeCount}`}</option>
+                  <button className="btn btn-success m-2" onClick={CoffeCountIncre}>
+                    +
+                  </button>
+                  {/* <p> = {coffeCount}</p> */}
+                </div>
+
+                <div className="d-flex">
+                  <th  className="m-3">Tea</th>
+                  <button className="btn btn-success m-2" name="" onClick={TeaCountDecre}>
+                    -
+                  </button >
+                  <option
+                    value="Tea"
+                    onChange={(e) => teaCount(e.target.value)}
+                  >{`${teaCount}`}</option>
+                  <button className="btn btn-success m-2" onClick={TeaCountIncre}>
+                    +
+                  </button>
+                  {/* <p> = {teaCount}</p> */}
+                </div>
+
+                <div className="d-flex">
+                  <th className="m-3">Cooldrink</th> 
+                  <button className="btn btn-success m-2" name="" onClick={CoolDrinkCountDecre}>
+                    -
+                  </button>
+                  <option
+                    value="Cool Drink"
+                    onChange={(e) => coolDrinkCount(e.target.value)}
+                  >{`${coolDrinkCount}`}</option>
+                  <button className="btn btn-success m-2" onClick={CoolDrinkCountIncre}>
+                    +
+                  </button>
+                  {/* <p> = {coolDrinkCount}</p> */}
+                </div>
+              </div>
+            </div>
+            {/* <div /> */}
+         
+          {/* </section>
+
+
+        <section> */}
+          {/* children */} 
+
+
+
+          
+        </section>
+

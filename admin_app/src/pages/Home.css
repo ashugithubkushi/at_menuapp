@@ -16,16 +16,16 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-  /* min-height: 100vh; */
+  min-height: 100vh;
 }
 
 .background {
     /* background-image: url("https://th.bing.com/th/id/R.9a10c13b0d2403581d29156c46ebc08b?rik=Ht02zRyweiFbuQ&riu=http%3a%2f%2fwww.pptgrounds.com%2fwp-content%2fuploads%2f2013%2f08%2fRestaurant-Menu-template-backgrounds.jpg&ehk=6Dpe7%2f5q0rbnX6YNIU7RmQCLnS0IoPil0q9h3P7%2bZPM%3d&risl=&pid=ImgRaw&r=0"); */
     /* background: rgb(190, 147, 147); */
     /* background: linear-gradient(170deg, rgb(147, 100, 100), white); */
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 100vh; */
     
   }
 

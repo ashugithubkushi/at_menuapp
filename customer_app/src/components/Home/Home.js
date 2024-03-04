@@ -52,7 +52,7 @@ const Home = () => {
   const Submit = (e) => {
     e.preventDefault();
     axios
-   .post("http://localhost:3000/createOrder", {
+      .post("http://localhost:3000/createOrder", {
         numberOfElders,
         pizzaCount,
         burgerCount,
@@ -66,13 +66,13 @@ const Home = () => {
         chatCount1,
         coffeCount1,
         teaCount1,
-        coolDrinkCount1,     
+        coolDrinkCount1,
       })
-   .then((result) => {
+      .then((result) => {
         console.log(result);
         navigate("/menu");
       })
-   .catch((err) => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   // update of snacks count
@@ -90,7 +90,6 @@ const Home = () => {
   console.log("coffeCount", coffeCount);
   console.log("teaCount", teaCount);
   console.log("coolDrinkCount", coolDrinkCount);
-
 
   const PizzaCountIncre = () => {
     setPizzaCount(pizzaCount + 1);
@@ -129,7 +128,7 @@ const Home = () => {
   const CoolDrinkCountDecre = () => {
     setCoolDrinkCount(coolDrinkCount - 1);
   };
- 
+
   //children
   const [numberOfChild, setNumberOfChild] = useState();
   const [pizzaCount1, setPizzaCount1] = useState(0);
@@ -184,341 +183,551 @@ const Home = () => {
     setCoolDrinkCount1(coolDrinkCount1 - 1);
   };
 
+
+
+  // dropdown
+  // const   [selected, setSelected] = useState();
+  // const [isActive, setIsActive] = useState(false);
+  // const options =["React" , "Vue", "Angular"]
+
   return (
     <div>
-
-{/* ...  */}
-<header className="header">
-        <h1>Healthy Snack</h1>
+      {/* ...  */}
+      <header className="header">Healthy Snacks
+      {/* <header className="header fixed-top header-shrink">Healthy Snack */}
+        {/* <h1>
+          <b>Healthy Snack</b>
+        </h1> */}
         <nav>
-            {/* <ul>
+          {/* <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul> */}
         </nav>
-    </header>
+      {/* </header> */}
+      
+      </header>
+      
+<body>
+  
 
-       <div className="background">
-        <img src="C:\Users\KITS\at_menuapp\customer_app\src\assets\images\12-124086_817988-title-food-burger-french-fries-wallpaper-burger.jpg" alt="" />
+      <div className="background">
+
+        {/* <h5>Hello</h5> */}
+        {/* <img
+          src="C:\Users\KITS\at_menuapp\customer_app\src\assets\images\12-124086_817988-title-food-burger-french-fries-wallpaper-burger.jpg"
+          alt=""
+        /> */}
         <div>
           {/* <div className="scrolling"> */}
           {/* <div className="healthy-snack">Healthy Snack</div> <br /> <br /> */}
-     {/* <div className="select-your-delicious">
-    //     Select your delicious snack here
-    //   </div> */}
-     <marquee  direction="right" className="select-your-delicious">
-             <h4>Select your delicious snack here</h4>
-           </marquee>
+          {/* <div className="select-your-delicious">
+          //     Select your delicious snack here
+          //   </div> */}
+          <marquee direction="right" className="select-your-delicious">
+           <i>Select your delicious snack here</i>  
+          </marquee>
         </div>
 
-        <section class="features">
-        <div className="d-flex">
-          {/* <form className="formdata"> */}
-          <label className="m-3 p-4">
-            <h2 className="color">Elders</h2>
-            {/* <div className=" m-3 p-4"><h2>Snacks</h2></div> */}
+        {/* updated */}
 
-            {/* <input
-                style={{ width: 250 }}
+
+        <section className="home" id="home"> 
+      <div className="home-text2">
+      <section class="features d-flex">
+            {/* <form className="formdata"> */}
+            
+
+            {/* added elders and childerns in one row */}
+            <label className="childrens-form">
+              {/* <h2 className="color">Elders</h2> */}
+              <h1 className="color"> Elders </h1>
+
+              {/* <div className=" m-3 p-4"><h2>Snacks</h2></div> */}
+              <select
+                style={{ margin:0, width: 200, height: 40 , backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'rgba(0, 0, 0, 0.5)' , fontSize:"20px"  }}
                 className="form-control"
                 type="dropdown"
                 name="elders"
                 onChange={(e) => setNumberOfElders(e.target.value)}
-              /> */}
+              >
+                <option value="N/A">N/A</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </label>
 
-            <select
-              style={{ width: 150, height: 50 }}
-              className="form-control d-flex"
-              type="dropdown"
-              name="elders"
-              onChange={(e) => setNumberOfElders(e.target.value)}
-            >
-              <option value="N/A">N/A</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </label>
+{/* snacks  */}
+<div className="items">
+                <div className="body-box">
+                  <th  className="body">
+                    <div className="name"><h3 className="Burger">Burger</h3></div>
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={BurgerCountDecre}>
+                    -
+                  </span>
+                  <span
+                    value="Burger"
+                    onChange={(e) => burgerCount(e.target.value)}
+                  >{`${burgerCount}`}</span>
+                  <span className="" onClick={BurgerCountIncre}>
+                    +
+                  </span>
+                  {/* <p> = {coffeCount}</p> */}
+                </div>
+                </th>
+                {/* </div> */}
 
-          <div className=" m-3 p-4">
-            <h2 className="color">Snacks</h2>
-            <div className="form-control">
-              <div className="d-flex">
-                <th>Pizza</th>
-                <button className="btn" name="" onClick={PizzaCountDecre}>
-                  -
-                </button>
-                <option
-                  value="Pizza"
-                  onChange={(e) => setPizzaCount(e.target.value)}
-                >{`${pizzaCount}`}</option>
-                <button className="btn" onClick={PizzaCountIncre}>
-                  +
-                </button>
-                <p> = {pizzaCount}</p>
-              </div>
+                
+                <th  className="body"><h3 className="pizza">Pizza</h3> 
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={PizzaCountDecre}>
+                    -
+                  </span>
+                  <span
+                    value="Pizza"
+                    onChange={(e) => pizzaCount(e.target.value)}
+                  >{`${pizzaCount}`}</span>
+                  <span className="" onClick={PizzaCountIncre}>
+                    +
+                  </span>
+                  {/* <p> = {teaCount}</p> */}
+                </div>
+                </th>
+               
 
-              <div className="d-flex">
-                <th>Burger</th>
-                <button className="btn" name="" onClick={BurgerCountDecre}>
-                  -
-                </button>
-                <option
-                  value="Burger"
-                  onChange={(e) => burgerCount(e.target.value)}
-                >{`${burgerCount}`}</option>
-                <button className="btn" onClick={BurgerCountIncre}>
-                  +
-                </button>
-                <p> = {burgerCount}</p>
-              </div>
+                <div className="body-box">
+                <th  className="body"><h3 className="chat">Chat</h3> 
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={CoolDrinkCountDecre}>
+                    -
+                  </span>
+                  <span
+                    value="Chat"
+                    onChange={(e) => chatCount(e.target.value)}
+                  >{`${chatCount}`}</span>
+                  <span className="" onClick={ChatCountIncre}>
+                    +
+                  </span>
+                  {/* <p> = {teaCount}</p> */}
+                </div>
+                </th>
+                </div>
 
-              <div className="d-flex">
-                <th>Chats</th>
-                <button className="btn" onClick={ChatCountDecre}>
-                  -
-                </button>
-                <td>
-                  <option
-                    value="Chats"
-                    onChange={(e) => setChatCount(e.target.value)}
-                  >{`${chatCount}`}</option>
-                </td>
-                <button className="btn" onClick={ChatCountIncre}>
-                  +
-                </button>
-                <p> = {chatCount}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className=" m-3 p-4">
-            <h2 className="color">Beverages</h2>
-            <div className="form-control">
-              <div className="d-flex">
-                <th>Coffe</th>
-                <button className="btn" name="" onClick={CoffeCountDecre}>
-                  -
-                </button>
-                <option
-                  value="Coffe"
-                  onChange={(e) => coffeCount(e.target.value)}
-                >{`${coffeCount}`}</option>
-                <button className="btn" onClick={CoffeCountIncre}>
-                  +
-                </button>
-                <p> = {coffeCount}</p>
-              </div>
-
-              <div className="d-flex">
-                <th>Tea</th>
-                <button className="btn" name="" onClick={TeaCountDecre}>
-                  -
-                </button>
-                <option
-                  value="Tea"
-                  onChange={(e) => teaCount(e.target.value)}
-                >{`${teaCount}`}</option>
-                <button className="btn" onClick={TeaCountIncre}>
-                  +
-                </button>
-                <p> = {teaCount}</p>
-              </div>
-
-              <div className="d-flex">
-                <th>Cooldrink</th>
-                <button className="btn" name="" onClick={CoolDrinkCountDecre}>
-                  -
-                </button>
-                <option
-                  value="Cool Drink"
-                  onChange={(e) => coolDrinkCount(e.target.value)}
-                >{`${coolDrinkCount}`}</option>
-                <button className="btn" onClick={CoolDrinkCountIncre}>
-                  +
-                </button>
-                <p> = {coolDrinkCount}</p>
               </div>
             </div>
-          </div>
-          <div />
-        </div>
+
+
+            {/* <div className="p-5"> */}
+              {/* <h2 className="color">Beverages</h2> */}
+              <div className="items">
+                <div className="body-box">
+                  <th  className="body">
+                    <div className="name"><h3 className="coffe">Coffe</h3></div>
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={CoffeCountDecre}>
+                    -
+                  </span>
+                  <span
+                    value="Coffe"
+                    onChange={(e) => coffeCount(e.target.value)}
+                  >{`${coffeCount}`}</span>
+                  <span className="" onClick={CoffeCountIncre}>
+                    +
+                  </span>
+                  {/* <p> = {coffeCount}</p> */}
+                </div>
+                </th>
+                {/* </div> */}
+
+                <div className="body-box">
+                <th  className="body"><h3 className="tea">Tea</h3> 
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={TeaCountDecre}>
+                    -
+                  </span>
+                  <span
+                    value="Tea"
+                    onChange={(e) => teaCount(e.target.value)}
+                  >{`${teaCount}`}</span>
+                  <span className="" onClick={TeaCountIncre}>
+                    +
+                  </span>
+                  {/* <p> = {teaCount}</p> */}
+                </div>
+                </th>
+                </div>
+
+                <div className="body-box">
+                <th  className="body"><h3 className="cooldrink">Cooldrink</h3> 
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={CoolDrinkCountDecre}>
+                    -
+                  </span>
+                  <span
+                    value="Cooldrink"
+                    onChange={(e) => coolDrinkCount(e.target.value)}
+                  >{`${coolDrinkCount}`}</span>
+                  <span className="" onClick={CoolDrinkCountIncre}>
+                    +
+                  </span>
+                  {/* <p> = {teaCount}</p> */}
+                </div>
+                </th>
+                </div>
+
+              </div>
+            </div>
+
+            {/* <div className="selected-formdata"> */}
+         <div class="data">
+         {/* <h2>Selected data</h2> */}
+  <form className="result-form">
+  <div className="data1">
+    <p >Elders: {numberOfElders}</p> 
+    </div>
+  <div className="data2">
+  <p>Burger: {burgerCount}</p>
+  <p>Pizza: {pizzaCount}</p>
+  <p>Chats: {chatCount}</p>
+  </div>
+  <div className="data2">
+  <p>Coffe: {coffeCount}</p>
+  <p className="teacount-1">Tea: {teaCount}</p>
+  <p className="cooldrink-1">Cooldrink: {coolDrinkCount}</p>
+  </div>
+  </form>
+</div>
+
+            {/* <div /> */}
         </section>
+      </div>
+    </section>
 
 
-        <section>
-        {/* children */}
+     {/* childrens  */}
+     <section className="home" id="home"> 
+      <div className="home-text2">
+      <section class="features d-flex">
+            {/* <form className="formdata"> */}
+            
 
-        <div className="d-flex">
-          {/* <form className="formdata"> */}
-          <label className="m-3 p-4">
-            <h2 className="color">Childrens</h2>
-            {/* <div className=" m-3 p-4"><h2>Snacks</h2></div> */}
+            {/* added elders and childerns in one row */}
+            <label className="childrens-form">
+              {/* <h2 className="color">Elders</h2> */}
+              <h1 className="color"> Childrens </h1>
 
-            {/* <input
-                style={{ width: 250 }}
+              {/* <div className=" m-3 p-4"><h2>Snacks</h2></div> */}
+              <select
+                style={{ margin:0, width: 200, height: 40 , backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'rgba(0, 0, 0, 0.5)' , fontSize:"20px"  }}
                 className="form-control"
                 type="dropdown"
-                name="elders"
-                onChange={(e) => setNumberOfElders(e.target.value)}
-              /> */}
+                name="children"
+                onChange={(e) => setNumberOfChild(e.target.value)}
+              >
+                <option value="N/A">N/A</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </label>
 
-            <select
-              style={{ width: 150, height: 50 }}
-              className="form-control d-flex"
-              type="dropdown"
-              name="elders"
-              onChange={(e) => setNumberOfChild(e.target.value)}
-            >
-              <option value="N/A">N/A</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </label>
+{/* snacks  */}
+<div className="items">
+                <div className="body-box">
+                  <th  className="body">
+                    <div className="name"><h3 className="Burger">Burger</h3></div>
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={BurgerCountDecre1}>
+                    -
+                  </span>
+                  <span
+                    value="Burger"
+                    onChange={(e) => burgerCount1(e.target.value)}
+                  >{`${burgerCount1}`}</span>
+                  <span className="" onClick={BurgerCountIncre1}>
+                    +
+                  </span>
+                  {/* <p> = {coffeCount}</p> */}
+                </div>
+                </th>
+                {/* </div> */}
 
-          <div className=" m-3 p-4">
-            <h2 className="color">Snacks</h2>
-            <div className="form-control">
-              <div className="d-flex">
-                <th>Pizza</th>
-                <button className="btn" name="" onClick={PizzaCountDecre1}>
-                  -
-                </button>
-                <option
-                  value="Pizza"
-                  onChange={(e) => setPizzaCount1(e.target.value)}
-                >{`${pizzaCount1}`}</option>
-                <button className="btn" onClick={PizzaCountIncre1}>
-                  +
-                </button>
-                <p> = {pizzaCount1}</p>
-              </div>
+                
+                <th  className="body"><h3 className="pizza">Pizza</h3> 
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={PizzaCountDecre1}>
+                    -
+                  </span>
+                  <span
+                    value="Pizza"
+                    onChange={(e) => pizzaCount1(e.target.value)}
+                  >{`${pizzaCount1}`}</span>
+                  <span className="" onClick={PizzaCountIncre1}>
+                    +
+                  </span>
+                  {/* <p> = {teaCount}</p> */}
+                </div>
+                </th>
+               
 
-              <div className="d-flex">
-                <th>Burger</th>
-                <button className="btn" name="" onClick={BurgerCountDecre1}>
-                  -
-                </button>
-                <option
-                  value="Burger"
-                  onChange={(e) => burgerCount1(e.target.value)}
-                >{`${burgerCount1}`}</option>
-                <button className="btn" onClick={BurgerCountIncre1}>
-                  +
-                </button>
-                <p> = {burgerCount1}</p>
-              </div>
+                <div className="body-box">
+                <th  className="body"><h3 className="chat">Chat</h3> 
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={CoolDrinkCountDecre1}>
+                    -
+                  </span>
+                  <span
+                    value="Chat"
+                    onChange={(e) => chatCount1(e.target.value)}
+                  >{`${chatCount1}`}</span>
+                  <span className="" onClick={ChatCountIncre1}>
+                    +
+                  </span>
+                  {/* <p> = {teaCount}</p> */}
+                </div>
+                </th>
+                </div>
 
-              <div className="d-flex">
-                <th>Chats</th>
-                <button className="btn" onClick={ChatCountDecre1}>
-                  -
-                </button>
-                <td>
-                  <option
-                    value="Chats"
-                    onChange={(e) => setChatCount1(e.target.value)}
-                  >{`${chatCount1}`}</option>
-                </td>
-                <button className="btn" onClick={ChatCountIncre1}>
-                  +
-                </button>
-                <p> = {chatCount1}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className=" m-3 p-4">
-            <h2 className="color">Beverages</h2>
-            <div className="form-control">
-              <div className="d-flex">
-                <th>Coffe</th>
-                <button className="btn" name="" onClick={CoffeCountDecre1}>
-                  -
-                </button>
-                <option
-                  value="Coffe"
-                  onChange={(e) => coffeCount1(e.target.value)}
-                >{`${coffeCount1}`}</option>
-                <button className="btn" onClick={CoffeCountIncre1}>
-                  +
-                </button>
-                <p> = {coffeCount1}</p>
-              </div>
-
-              <div className="d-flex">
-                <th>Tea</th>
-                <button className="btn" name="" onClick={TeaCountDecre1}>
-                  -
-                </button>
-                <option
-                  value="Tea"
-                  onChange={(e) => teaCount1(e.target.value)}
-                >{`${teaCount1}`}</option>
-                <button className="btn" onClick={TeaCountIncre1}>
-                  +
-                </button>
-                <p> = {teaCount1}</p>
-              </div>
-
-              <div className="d-flex">
-                <th>Cooldrink</th>
-                <button className="btn" name="" onClick={CoolDrinkCountDecre1}>
-                  -
-                </button>
-                <option
-                  value="Cool Drink"
-                  onChange={(e) => coolDrinkCount1(e.target.value)}
-                >{`${coolDrinkCount1}`}</option>
-                <button className="btn" onClick={CoolDrinkCountIncre1}>
-                  +
-                </button>
-                <p> = {coolDrinkCount1}</p>
               </div>
             </div>
-          </div>
-          <div />
-          </div>
 
-          
 
-          </section>
-          <button
+            {/* <div className="p-5"> */}
+              {/* <h2 className="color">Beverages</h2> */}
+              <div className="items">
+                <div className="body-box">
+                  <th  className="body">
+                    <div className="name"><h3 className="coffe">Coffe</h3></div>
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={CoffeCountDecre1}>
+                    -
+                  </span>
+                  <span
+                    value="Coffe"
+                    onChange={(e) => coffeCount1(e.target.value)}
+                  >{`${coffeCount1}`}</span>
+                  <span className="" onClick={CoffeCountIncre1}>
+                    +
+                  </span>
+                  {/* <p> = {coffeCount}</p> */}
+                </div>
+                </th>
+                {/* </div> */}
+
+                <div className="body-box">
+                <th  className="body"><h3 className="tea">Tea</h3> 
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={TeaCountDecre1}>
+                    -
+                  </span>
+                  <span
+                    value="Tea"
+                    onChange={(e) => teaCount1(e.target.value)}
+                  >{`${teaCount1}`}</span>
+                  <span className="" onClick={TeaCountIncre1}>
+                    +
+                  </span>
+                  {/* <p> = {teaCount}</p> */}
+                </div>
+                </th>
+                </div>
+
+                <div className="body-box">
+                <th  className="body"><h3 className="cooldrink">Cooldrink</h3> 
+                  <div className="wrapper"> 
+                  <span className="" name="" onClick={CoolDrinkCountDecre1}>
+                    -
+                  </span>
+                  <span
+                    value="Cooldrink"
+                    onChange={(e) => coolDrinkCount1(e.target.value)}
+                  >{`${coolDrinkCount1}`}</span>
+                  <span className="" onClick={CoolDrinkCountIncre1}>
+                    +
+                  </span>
+                  {/* <p> = {teaCount}</p> */}
+                </div>
+                </th>
+                </div>
+
+              </div>
+            </div>
+
+            {/* <div className="selected-formdata"> */}
+         <div class="data">
+         {/* <h2>Selected data</h2> */}
+  <form className="result-form">
+  <div className="data1">
+    <p >Childrens: {numberOfChild}</p> 
+    </div>
+  <div className="data2">
+  <p>Burger: {burgerCount1}</p>
+  <p>Pizza: {pizzaCount1}</p>
+  <p>Chats: {chatCount1}</p>
+  </div>
+  <div className="data2">
+  <p>Coffe: {coffeCount1}</p>
+  <p className="teacount-1">Tea: {teaCount1}</p>
+  <p className="cooldrink-1">Cooldrink: {coolDrinkCount1}</p>
+  </div>
+  </form>
+</div>
+
+            {/* <div /> */}
+        </section>
+      </div>
+    </section>
+
+   
+    
+
+              <div className="container">
+                {/* <div className="btn btn-success"> */}
+              <div> 
+                {/* <button onClick={Submit} type="button" 
+              className="my-button">
+              Submit
+            </button> */}
+            <button
           type="submit"
-          className="btn btn-success float-end"
-          style={{ marginLeft: "10px" }}
-          onClick={() => setVisible(true)}
+          className="btn btn-success"
+          // style={{ marginLeft: "10px" }}
+          onClick={({}) => setVisible(true)}
         >
           Submit
         </button>
+            </div>
+            {/* </div> */}
+            
+              </div>
 
-
-
-{/* <button onClick={Submit} type="button" className="btn btn-success">
+              {/* <button onClick={Submit} type="button" className="btn btn-success">
               Submit
-            </button>
-        <button to='/' type="button" className="btn btn-success">Submit</button> */}
+            </button> */}
 
-        
+              
+           
+   
+    
 
-        
+
+
+
+    {/* <section>
+      <div className="row justify-content-md-center">
+        Hello
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit voluptates quisquam libero, eos ratione 
+          nobis nam similique explicabo non ullam culpa dolore magnam tempore ipsam modi porro officiis qui accusantium?</p>
       </div>
+    </section> */}
+
+
+    {/* <section className="section" >
+      <div className="container">
+        <h2>Snacks lists</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit voluptates quisquam libero, eos ratione 
+          nobis nam similique explicabo non ullam culpa dolore magnam tempore ipsam modi porro officiis qui accusantium?
+          
+           <div class="cars-container 
+          //  container
+           ">
+      <div class="box">
+         <img src="customer_app\src\assets\images\kisspng-tata-tiago-tata-motors-car-tata-tigor-5b1eff9a8ff781.4756255515287581705897.jpg" alt="" class="src"></img>
+            <h2>Burger snack</h2>
+      </div>
+
+
+<div className="image-grid">
+  <div className="image-container"> 
+      <img src="https://www.transparentpng.com/thumb/burger/hot-burger-king-hd-png-9dzyCE.png" alt="Image 1" />
+     </div>
+  <div className="image-container">
+      <img src="https://www.transparentpng.com/thumb/pizza/yQEfc6-mixed-pizza-image-food-quick-order-hearty-in-presentation-tray.png" alt="Image 2" />
+      </div>
+    </div>
+      </div>
+          </p>
+      </div>
+    </section> */}
+
+    {/* <section className="section" >
+      <div className="container">
+        Hello <hr />
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit voluptates quisquam libero, eos ratione 
+          nobis nam similique explicabo non ullam culpa dolore magnam tempore ipsam modi porro officiis qui accusantium?</p>
+      <hr /> </div>
+    </section> */}
+
+    <section className="section" >
+      <div className="container">
+        Contact info <hr />
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit voluptates quisquam libero, eos ratione 
+          nobis nam similique explicabo non ullam culpa dolore magnam tempore ipsam modi porro officiis qui accusantium?
+          </p>
+       <hr /></div>
+      <footer className="footer">
+      <div className="container">
+    <p>copy rights</p>
+          </div>
+      </footer>
+    </section>  
+
+    
+
+
+
+    
+
+    {/* <div> <button onClick={Submit} type="button" className="btn btn-success float-end">
+              Submit
+            </button></div> */}
+  
+
+
+ 
+
+        
+        
+
+
+
+        
+
+        {/* <button onClick={Submit} type="button" className="btn btn-success float-end">
+              Submit
+            </button> */}
+        {/* <button to='/' type="button" className="btn btn-success">Submit</button> */}
+  
+  
+        {/* <div className="home-text"> */}
+        {/* <h1>We have evrything  <br />You <span>Need</span> </h1> */}
+        {/* We have everything you need */}
+        {/* <p>select your delicious snack here</p>  */}
+        {/* <a href="#" class="btn">Click here..</a> */}
+      {/* </div> */}
+      </div>
+
+      </body>
+
+      
 
       <div>
         <Modal
@@ -532,7 +741,7 @@ const Home = () => {
               left: 0,
               width: "100vw",
               height: "100vh",
-              background: "rgba(255, 255, 255, 0.75)",
+              background: "rgba(255, 255, 255, 0.7)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -545,15 +754,15 @@ const Home = () => {
               overflowY: "auto",
               position: "relative",
               border: "1px solid #ccc",
-              borderRadius: "0.3rem",
+              borderRadius: "1rem",
             },
           }}
         >
-          <h1>Success</h1>
-          <p>
-            Your Order has been submitted! <br />
-            Thank you.{" "}
-          </p>
+          <h1>Success...!</h1>
+          <h5>
+            Your Order has been submitted. <br /> <br />
+            Thank you{" "}
+          </h5> <br />
           <button
             type="button"
             className="btn btn-success"
@@ -562,13 +771,14 @@ const Home = () => {
             OK
           </button>
         </Modal>
+        
       </div>
-      <footer>
-        <p>&copy; Website By </p>
-        {/*2024 My Website */}
-    </footer>
-    </div>
 
+    </div>
+    
+    
+      
+      
     
   );
 };
