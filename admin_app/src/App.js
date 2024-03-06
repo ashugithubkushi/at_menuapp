@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 // import Layout from "./components/Layouts/Layout";
@@ -6,12 +7,13 @@ import Home from "./pages/Home";
 // import Contact from './pages/Contact';
 import Menu from "./pages/Menu";
 import Pagenotfound from "./pages/Pagenotfound";
-import Abouut from "./pages/Abouut";
+import Abouut from "./components/Abouut";
 import Login from "./components/Layouts/Login/Login";
 import Bell from "./pages/Bell";
 
 function App() {
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -23,6 +25,7 @@ function App() {
         <Route path="*" element={<Pagenotfound />} />
       </Routes>
     </BrowserRouter>
+    
   );
 }
 

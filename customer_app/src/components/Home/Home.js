@@ -70,7 +70,7 @@ const Home = () => {
       })
       .then((result) => {
         console.log(result);
-        navigate("/menu");
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };
@@ -490,7 +490,7 @@ const Home = () => {
                 <div className="body-box">
                 <th  className="body"><h3 className="chat">Chat</h3> 
                   <div className="wrapper"> 
-                  <span className="" name="" onClick={CoolDrinkCountDecre1}>
+                  <span className="" name="" onClick={ChatCountDecre1}>
                     -
                   </span>
                   <span
@@ -618,9 +618,9 @@ const Home = () => {
             
               </div>
 
-              {/* <button onClick={Submit} type="button" className="btn btn-success">
+              <button onClick={Submit} type="button" className="btn btn-success">
               Submit
-            </button> */}
+            </button>
 
               
            

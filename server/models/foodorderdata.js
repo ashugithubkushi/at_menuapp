@@ -3,16 +3,6 @@ const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
         id: Number,
-        // numberOfElders: Number,
-        // snacksElder: String,
-        // drinksElder: String,
-        // totalItemElder: Number,
-        // numberOfChild: Number,
-        // snacksChildren: String,
-        // drinksChildren: String,
-        // totalItemChildren: Number,
-        // status: String,
-
         numberOfElders: Number,
         pizzaCount: Number,
         burgerCount: Number,
@@ -27,6 +17,7 @@ const OrderSchema = new mongoose.Schema({
         coffeCount1: Number,
         teaCount1: Number,
         coolDrinkCount1: Number,
+        status: String,
         orderDateTime :  { type : Date, default: Date.now }
 
 });

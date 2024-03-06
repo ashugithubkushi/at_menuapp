@@ -11,7 +11,7 @@ const Menu = () => {
   const [orders, setOrders] = useState([]);
   const [status, setStatus] = useState();
   const [orderStatus, setOrderStatus] = useState([]);
-  // const [statusform, setStatusform] = useState([]);
+  const [statusform, setStatusform] = useState([]);
   // const [myValue, setMyValue] = useState("");
   const [food, setFood] = useState("");
 
@@ -32,7 +32,9 @@ const Menu = () => {
     .then(result => {
         console.log(result)
 
-        // setStatus(false)
+        setStatus(false)
+        // console.log(status);
+
         // navigate('/')
     })
     .catch(err => console.log(err))
@@ -61,6 +63,20 @@ const [post, setPost] = useState({
   body: ''
 })
 
+
+
+//  dropdown
+// const [selectedOption, setSelectedOption] = useState(1)
+
+// useEffect(() => {
+//   const storedSelectedOption = parseInt(sessionStorage.getItem('selectedOption') || '1')
+//   setSelectedOption(storedSelectedOption)
+// }, [])
+
+// const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+//   setSelectedOption(parseInt(e.target.value))
+//   sessionStorage.setItem('selectedOption', e.target.value)
+// };
 
 
   return (
@@ -129,11 +145,20 @@ const [post, setPost] = useState({
                  value={item.status}
                 // value={orderStatus[item._id]}
                 >
-                <option value="Pending">Pending</option>
-                <option value="In progress">In progress</option>
-                <option value="Ordered">Ordered</option>
+                <option value="Pending" selected={item.status == 'Pending' ? 'selected':''}>Pending</option>
+                <option value="In progress" selected={item.status == 'In progress' ? 'selected':''}>In progress</option>
+                <option value="Ordered" selected={item.status == 'Ordered' ? 'selected':''}>Ordered</option>
                 </select>
-                </div>
+
+                {/* dropdown */}
+                
+                {/* <select  onChange={handleOnChange} >
+      <option value="1" selected={selectedOption === 1}>Pending</option>
+      <option value="2" selected={selectedOption === 2}>In progress</option>
+      <option value="3" selected={selectedOption === 3}>Ordered</option>
+    </select> */}
+    
+    </div>
 
 
 {/* 
