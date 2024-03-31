@@ -28,11 +28,26 @@ const UserSchema = new mongoose.Schema({
 
 });
 
+const LoginSchema = new mongoose.Schema({
+       email: String,
+       password: String,
+
+});
+const RegisterSchema = new mongoose.Schema({
+        username: String,
+        email: String,
+        createPassword: String,
+        confirmPassword: String,
+
+});
+
 
 
 const OrderModel = mongoose.model("fod", OrderSchema);
 const UserModel = mongoose.model("user", UserSchema);
-module.exports = {OrderModel, UserModel};
+const LoginModel = mongoose.model("login", LoginSchema);
+const RegisterModel = mongoose.model("register", RegisterSchema);
+module.exports = {OrderModel, UserModel, LoginModel, RegisterModel };
 
 
 

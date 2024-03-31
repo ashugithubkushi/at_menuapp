@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Login.css"
 import React, { useState } from 'react';
 import axios from "axios";
@@ -26,7 +26,7 @@ import { useNavigate } from "react-router-dom";
         })
         .then((result) => {
           console.log(result);
-          navigate("/");
+          navigate("/menu");
         })
         .catch((err) => console.log(err));
     };
@@ -35,23 +35,30 @@ import { useNavigate } from "react-router-dom";
       <div className="App">
       
         <form onSubmit={handleSubmit}>
-        <h1>Login Page</h1>
-          <label htmlFor="username">Username:</label>
+        <h1 className="text-white text-center">Login Page</h1>
+
+        <br />
+          {/* <label>Username:</label> */}
           <input
             type="text"
             id="username"
             name="username"
             value={username}
+            placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
           />
-          <label htmlFor="password">Password:</label>
+          
+          {/* <label>Password:</label> */}
           <input
             type="password"
             id="password"
             name="password"
             value={password}
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
+
+          <br />
           {/* <button type="submit">Log In</button> */}
           <button onClick={Submit} type="button" className="btn btn-success">
               Login

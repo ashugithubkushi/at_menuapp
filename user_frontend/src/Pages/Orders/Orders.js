@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../components/Layouts/Layout";
-import "./Menu.css";
+import "./orders.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import { useParams } from "react-router-dom";
+import { Layout } from "antd";
 
-const Menu = () => {
+
+const Orders = () => {
   const { id } = useParams();
   const [orders, setOrders] = useState([]);
   const [status, setStatus] = useState();
@@ -26,19 +27,29 @@ const Menu = () => {
       .catch((err) => console.log(err));
   }, []);
 
+
+
   const Update = (e, status, id) => {
     e.preventDefault();
     axios.put("http://localhost:3000/updateStatus/"+id  , {status})
     .then(result => {
         console.log(result)
 
-        setStatus(false)
+        // setStatus(false)
         // console.log(status);
 
         // navigate('/')
     })
     .catch(err => console.log(err))
    }
+
+
+  const [selectedValue, setSelectedValue] = useState("");
+
+   const handleChange = (e) => {
+      setSelectedValue(e.target.value);
+    };
+   
 
   // const Update = (e) => {
   //   e.preventDefault();
@@ -79,6 +90,8 @@ const [post, setPost] = useState({
 // };
 
 
+
+
   return (
     <Layout>
       <div>
@@ -87,9 +100,9 @@ const [post, setPost] = useState({
 
       <div className="w-100 vh-100 justify-content-center align-items-center">
         <div className="w-100">
-          <Link to="/login" className="btn btn-success float-end">
+          {/* <Link to="/login" className="btn btn-success float-end">
             Logout
-          </Link>
+          </Link> */}
 
           <table className="table">
             <thead>
@@ -108,6 +121,7 @@ const [post, setPost] = useState({
               </tr>
             </thead>
 
+{/* <tbody> */}
             {orders.map((item, i) => {
               //  console.log(item)
             
@@ -130,10 +144,6 @@ const [post, setPost] = useState({
                     <td>{item.coffeCount}</td>
                     <td>{item.teaCount}</td>
                     <td>{item.coolDrinkCount}</td>
-                    {/* <td>{item.numberOfElders}</td>
-                    <td>{item.snacksElder}</td>
-                    <td>{item.drinksElder}</td>
-                    <td>{item.totalItemElder}</td> */}
                     <td className="status-btn p-5 m-1" rowSpan={2} scope="row">
 
 
@@ -142,23 +152,18 @@ const [post, setPost] = useState({
             <div className="mb-2">
               <select className="form-control" name="" id=""
                 onChange={(e) => Update(e, e.target.value, item._id)}
-                 value={item.status}
-                // value={orderStatus[item._id]}
+                // onChange={handleOnChange}
+              
+                //  value={item.status}
+                //  value={orderStatus[item._id]}
+                value={status} 
+                // onChange={handleChange}
                 >
-                <option value="Pending" selected={item.status == 'Pending' ? 'selected':''}>Pending</option>
-                <option value="In progress" selected={item.status == 'In progress' ? 'selected':''}>In progress</option>
-                <option value="Ordered" selected={item.status == 'Ordered' ? 'selected':''}>Ordered</option>
+                <option value="Pending" selected={item.status === 'Pending' ? 'selected':''}>Pending</option>
+                <option value="In progress" selected={item.status === 'In progress' ? 'selected':''}>In progress</option>
+                <option value="Ordered" selected={item.status === 'Ordered' ? 'selected':'' }>Ordered</option>
                 </select>
-
-                {/* dropdown */}
-                
-                {/* <select  onChange={handleOnChange} >
-      <option value="1" selected={selectedOption === 1}>Pending</option>
-      <option value="2" selected={selectedOption === 2}>In progress</option>
-      <option value="3" selected={selectedOption === 3}>Ordered</option>
-    </select> */}
-    
-    </div>
+     </div>
 
 
 {/* 
@@ -198,9 +203,8 @@ const [post, setPost] = useState({
                           > 
                             OK
                           </button>
-    </div> */}
-            
-      
+                        </div> */}
+
 
                       {/* select form */}
                       {/* <div>
@@ -284,10 +288,6 @@ const [post, setPost] = useState({
                   <tr key={i}>
                     {/* <td scope="row">{i + 1}</td> */}
                     <td>Childrens</td>
-                    {/* <td>{item.numberOfChild}</td>
-                    <td>{item.snacksChildren}</td>
-                    <td>{item.drinksChildren}</td>
-                    <td>{item.totalItemChildren}</td> */}
                     <td>{item.numberOfChild}</td>
                     <td>{item.pizzaCount1}</td>
                     <td>{item.burgerCount1}</td>
@@ -299,6 +299,7 @@ const [post, setPost] = useState({
                 </tbody>
               );
             })}
+            {/* </tbody> */}
           </table>
         </div>
       </div>
@@ -306,4 +307,4 @@ const [post, setPost] = useState({
   );
 };
 
-export default Menu;
+export default Orders;

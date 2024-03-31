@@ -95,14 +95,14 @@
   }
 
   body {
-    height: 100vh;
+    /* height: 100vh; */
     /* background-image: url(c:\Users\KITS\at_menuapp\customer_app\src\assets\images\12-124086_817988-title-food-burger-french-fries-wallpaper-burger.jpg); */
     /* background-image: url(C:\Users\KITS\at_menuapp\customer_app\src\assets\images\pngtree-an-assortment-of-various-fast-food-items-on-a-textured-gray-image_13609477.png); */
-    background-image: url(C:\Users\KITS\at_menuapp\customer_app\src\assets\images\pngtree-vegetable-juice-fast-food-burger-wooden-table-background-picture-image_2445023.jpg);
-    position: relative;
+    /* background-image: url(C:\Users\KITS\at_menuapp\customer_app\src\assets\images\pngtree-vegetable-juice-fast-food-burger-wooden-table-background-picture-image_2445023.jpg); */
+    /* position: relative;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover; */
     /* background-position: center; */
     /* display: flex; */
     /* justify-content: left; */

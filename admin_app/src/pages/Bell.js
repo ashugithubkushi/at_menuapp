@@ -1,139 +1,69 @@
-import React, { useState } from "react";
-import Layout from "../components/Layouts/Layout";
+// import React, { useState } from "react";
+// import Layout from "../components/Layouts/Layout";
 // import { Link } from "react-router-dom";
 
+import React, { Component } from "react";
+import Select from "react-select";
+import axios from "axios";
 
 
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedValue: {},
+      selectOptions: []
+    };
+  }
 
-const Bell = () => {
+  async getOptions() {
+    const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+    const data = res.data;
 
-  const [counter, setCounter] = useState(0);
- 
-  // Function is called everytime increment button is clicked
-  const handleClick1 = () => {  
-      // Counter state is incremented
-      setCounter(counter + 1);
+    const options = data.map((d) => ({
+      value: d.id,
+      label: d.name
+    }));
+
+    this.setState({ selectOptions: options });
+  }
+
+  handleChange(e) {
+    console.log(e);
+    this.setState({ selectedValue: e });
+  }
+
+  componentDidMount() {
+    this.getOptions();
+  }
+
+  buttonClick = () => {
+    const valueToSet = this.state.selectOptions.find((row) => {
+      return row.value === 2 && row.label === "Ervin Howell";
+    });
+
+    if (valueToSet) {
+      this.handleChange(valueToSet);
+    }
   };
 
-  // Function is called everytime decrement button is clicked
-  const handleClick2 = () => {
-      // Counter state is decremented
-      setCounter(counter - 1);
-  };
-
-  return (
-    <Layout>
+  render() {
+    const { selectedValue = {} } = this.state;
+    console.log(this.state.selectOptions);
+    return (
       <div>
-        <h1>GeeksforGeeks</h1>
-        <h4>
-          Icon with count Badge:
-          <span id="group">
-            <button type="button" class="btn btn-info">
-              <i class="fa fa-envelope"></i>
-            </button>
-            <span class="badge badge-light">5</span>
-          </span>{" "}
-          <br />
-          <button class="btn btn-danger">
-            <i class="fas fa-minus"></i>
-            Subtract
-          </button>
-          <button class="btn btn-success">
-            <i class="fas fa-plus"></i>
-            Addition
-          </button>
-        </h4>
+        <Select
+      value={{ id: this.state.id, label: this.state.name }}
+      options={this.state.selectOptions}
+      onChange={this.handleChange.bind(this)}
+    />
+        <p>
+          You have selected <strong>{selectedValue.label}</strong> whose id is{" "}
+          <strong>{selectedValue.value}</strong>
+        </p>
+        <button onClick={this.buttonClick}>Click</button>
       </div>
-
-       {/* <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "300%",
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                top: "-15%",
-            }}
-        >
-            Counter App
-            <div
-                style={{
-                    fontSize: "120%",
-                    position: "relative",
-                    top: "10vh",
-                }}
-            >
-                {counter}
-            </div>
-            <div className="buttons">
-                <button
-                    style={{
-                        fontSize: "60%",
-                        position: "relative",
-                        top: "20vh",
-                        marginRight: "5px",
-                        backgroundColor: "green",
-                        borderRadius: "8%",
-                        color: "white",
-                    }}
-                    onClick={handleClick1}
-                >
-                    Increment
-                </button>
-                <button
-                    style={{
-                        fontSize: "60%",
-                        position: "relative",
-                        top: "20vh",
-                        marginLeft: "5px",
-                        backgroundColor: "red",
-                        borderRadius: "8%",
-                        color: "white",
-                    }}
-                    onClick={handleClick2}
-                >
-                    Decrement
-                </button>
-            </div>
-            
-        </div> */}
-
-      <form action="">
-        <div className="w-100 vh-100 justify-content-center align-items-center">
-        <div className="w-100">
-          <div>
-            <h2 style={{ color: "red", fontFamily: "opensans-bold" }}>
-              {" "}
-              Total order count{" "}
-            </h2>
-          </div>
-          <table className="table">
-            <thead>
-              <tr className="table-data">
-                <th scope="row">Orderid</th>
-                <th scope="row">Persons</th>
-                <th scope="row">Num of Elders</th>
-                <th scope="row">Snacks</th>
-                <th scope="row">Drinks</th>
-                <th scope="row">Total count</th>
-                <th scope="row">Status</th>
-                <th scope="row">ordered Time</th>
-                {/* <th scope="row">snacksChildren</th>
-                <th scope="row">drinksChildren</th>
-                <th scope="row">totalItemChildren</th> */}
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </div>
-      </form>
-    
-    
-    </Layout>
-  );
-};
-
-export default Bell;
+      
+    );
+  }
+}

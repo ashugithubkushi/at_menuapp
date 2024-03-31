@@ -4,7 +4,7 @@ import Headers from "./Headers";
 const Layout = ({ children }) => {
   return (
     <div>
-      <Headers />
+      {/* <Headers /> */}
       <div>{children}</div>
     </div>
   );

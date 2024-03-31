@@ -2,28 +2,60 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-// import Layout from "./components/Layouts/Layout";
-import Home from "./pages/Home";
+import Layout from "./components/Layouts/Layout";
+import Home from "./components/Home/Home";
 // import Contact from './pages/Contact';
-import Menu from "./pages/Menu";
 import Pagenotfound from "./pages/Pagenotfound";
 import Abouut from "./components/Abouut";
 import Login from "./components/Layouts/Login/Login";
 import Bell from "./pages/Bell";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Orders from "./components/Orders/Orders";
+import Menu from "./components/Menu";
+// import Testdropdown from "./components/Testdropdown/Testdropdown";
+import LineChat from "./components/LineChart";
+import PieChat from "./components/PieChart";
+import Navbar from "./components/Navbar";
+
+// import Headers from "./components/Layouts/Headers";
+
+
+
 
 function App() {
+
+  
   return (
     
     <BrowserRouter>
+
+
+     <div><Navbar/></div>
+
+   <div className="d-flex">
+    <div className="w-auto">
+      <Sidebar/>
+   
+    </div>
+    <div className='col'>
+      
       <Routes>
-        <Route path="/login" element={<Login />} />
-        {/* <Route path='/' element={<Home/>}/> */}
+        <Route path="/" element={<Login />} />
+        <Route path='/home' element={<Home/>}/>
         <Route path="/abouut" element={<Abouut />} />
-        <Route path="/" element={<Home />} />
+        <Route path='/orders' element={<Orders/>} />
+        <Route path='/sidebar' element={<Sidebar/>} />
+        {/* <Route path='/header' element={<Headers/>} /> */}
+
         <Route path="/menu" element={<Menu />} />
         <Route path="/bell" element={<Bell/>} />
         <Route path="*" element={<Pagenotfound />} />
+        {/* <Route path="testdropdown" element={<Testdropdown/>} /> */}
+        <Route path='/lineChat' element={<LineChat/>}/>
+        <Route path='/pieChat' element={<PieChat/>}/>
       </Routes>
+      </div>
+      </div>
     </BrowserRouter>
     
   );

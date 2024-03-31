@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./Home.css";
+import "./menu.css";
 // import { Link } from "react-router-dom";
 // import Layout from "../components/Layouts/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 
-const Home = () => {
+const Menu = () => {
   const navigate = useNavigate();
 
   // const [numberOfElders, setNumberOfElders] = useState();
@@ -70,7 +70,9 @@ const Home = () => {
       })
       .then((result) => {
         console.log(result);
-        navigate("/");
+        // navigate("/");
+        setVisible(true);
+        // alert("Order Success");
       })
       .catch((err) => console.log(err));
   };
@@ -595,6 +597,13 @@ const Home = () => {
       </div>
     </section>
 
+
+    <section>
+    <button onClick={Submit} type="button" className="btn btn-success">
+              Submit
+            </button>
+    </section>
+
    
     
 
@@ -605,22 +614,20 @@ const Home = () => {
               className="my-button">
               Submit
             </button> */}
-            <button
+            {/* <button
           type="submit"
           className="btn btn-success"
           // style={{ marginLeft: "10px" }}
           onClick={({}) => setVisible(true)}
         >
           Submit
-        </button>
+        </button> */}
             </div>
             {/* </div> */}
             
               </div>
 
-              <button onClick={Submit} type="button" className="btn btn-success">
-              Submit
-            </button>
+             
 
               
            
@@ -771,7 +778,6 @@ const Home = () => {
             OK
           </button>
         </Modal>
-        
       </div>
 
     </div>
@@ -783,4 +789,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Menu;

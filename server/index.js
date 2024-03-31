@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const {OrderModel, UserModel} = require('./models/foodorderdata')
+const {OrderModel, UserModel, LoginModel, RegisterModel} = require('./models/foodorderdata')
 
 
 const app = express()
@@ -58,6 +58,19 @@ app.post("/createUser", (req, res) => {
     .then(users => res.json(users))
     .catch(err => res.json(err))
 })
+app.post("/createLogin", (req, res) => {
+    console.log('mydata',req.body)
+    LoginModel.create(req.body)
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
+app.post("/createRegister", (req, res) => {
+    console.log('mydata',req.body)
+    RegisterModel.create(req.body)
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
+
 // app.put("/updateStatus/:id", (req, res) => {
 //     console.log('mydata',req.body)
 //     const id = req.params.id;
