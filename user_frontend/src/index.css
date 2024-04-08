@@ -21,6 +21,7 @@ body{
   background: rgba(255, 255, 255, 0.3);
 }
 
+
 .ant-layout {
   min-height: 100vh;
 }
@@ -48,8 +49,14 @@ body{
 }
 
 main{
-  overflow-y: scroll;
+  height: 80vh;
+  /* overflow-y: scroll;  */
   background-color: transparent;
+  /* background-color: rgb(225, 220, 227); */
+}
+
+main::-webkit-scrollbar {
+width: 0px;
 }
 
 

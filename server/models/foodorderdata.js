@@ -38,7 +38,6 @@ const RegisterSchema = new mongoose.Schema({
         email: String,
         createPassword: String,
         confirmPassword: String,
-
 });
 
 

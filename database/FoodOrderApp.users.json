@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "66069213b4f1457cbcc7ea62"
+  },
+  "username": "12345",
+  "password": "54321",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6606bc316f05279ee7c4602c"
+  },
+  "username": "Ashu",
+  "password": "123",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6606bc4e6f05279ee7c46030"
+  },
+  "username": "Ashu",
+  "password": "123",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6606bcd66f05279ee7c46036"
+  },
+  "username": "Ashu",
+  "password": "123",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6606bd036f05279ee7c46038"
+  },
+  "username": "Ashu",
+  "password": "123",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660b8bb4bba95f6bda7290d3"
+  },
+  "username": "Ashu@gmail.com",
+  "password": "123",
+  "__v": 0
+}]

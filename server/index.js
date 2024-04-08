@@ -71,6 +71,26 @@ app.post("/createRegister", (req, res) => {
     .catch(err => res.json(err))
 })
 
+// UN & PASSWORD verification
+// app.post('/https://jsonplaceholder.typicode.com/login', (req, res) => {
+//     const { email, password } = req.body;
+
+//     if (email === 'admin' && password === 'secret') {
+//         const token = 
+//         jwt.sign({email} , secretKey, {expiresIn: '1h'});
+
+//         res.cookie('jwt', token, {httpOnly: true, maxAge: 3600000});
+//         res.json({isAuthenticated: true , message: 'Login successful'});
+//     }
+//     else{
+//         res.status(401)
+//         .json({isAuthenticated: false, error: 'Invalid credentials'});
+//     }
+// });
+
+
+
+
 // app.put("/updateStatus/:id", (req, res) => {
 //     console.log('mydata',req.body)
 //     const id = req.params.id;
@@ -88,6 +108,7 @@ app.put('/updateStatus/:id', (req, res) => {
   .then(users => res.json(users))
   .catch(err => res.json(err))
 })
+
 
 app.listen(3000, () => {
     console.log("server is running")

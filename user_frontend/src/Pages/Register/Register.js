@@ -1,83 +1,12 @@
-// import React from 'react'
-// import { Link, NavLink } from 'react-router-dom'
-// import "./register.css";
-
-
-// const Register = () => {
-//   return (
-//     <div>
-// <body>
-//      <div className="formregister">
-//      <form action="">
-//      <h1 className='text-center text-white'>Register Here</h1> <br />
-//           <label htmlFor="username" className='text-white'>Username:</label>
-//           <input
-//             type="text"
-//             id="username"
-//             name="username"
-//             required
-//           />
-//           <label htmlFor="email" className='text-white'>Email:</label>
-//           <input
-//             type="email"
-//             id="email"
-//             name="email"
-//             required
-//           />
-//           <label htmlFor="password" className='text-white'>Create Password:</label>
-//           <input
-//             type="password"
-//             id="password"
-//             name="password"
-//             required
-//           />
-//           <label htmlFor="password" className='text-white'>Confirm password:</label>
-//           <input
-//             type="password"
-//             id="password"
-//             name="password"
-//             required
-//           />
-          
-//           {/* <NavLink to={"/"}>
-//         <button type="button"
-//         style={{background: "#5a8077" , borderRadius: "5px"}}
-//         >
-//               Register
-//             </button>
-//         </NavLink> */}
-
-//         <br />
-//         <br />
-//         <Link 
-//           to="/"
-//           className='border-0 px-3 py-2 text-white fw-small w-100 text-center text-decoration-none fs-5'
-//           style={{background: "#5a8077" , borderRadius: "5px"}}
-//           type='submit'
-//           >
-//             Register
-//           </Link>
-//         </form>
-//      </div>
-//      </body>
-        
-
-     
-//     </div>
-//   )
-// }
-
-// export default Register
-
-
 import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import './register.css';
-import axios from "axios";
-// import { Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import for potential backend communication
 
 function Register() {
   const navigate = useNavigate();
+  const history = useNavigate();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [createPassword, setCreatePassword] = useState('');
@@ -88,22 +17,68 @@ function Register() {
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
   const validateUsername = (username) => {
-    // Example: Username must be at least 4 characters long
-    return username.length >= 4;
+    // Example: Username must be at least 4 characters long and alphanumeric
+    const regex = /^[a-zA-Z0-9]+$/; // Corrected regular expression
+    return username.length >= 4 && regex.test(username);
   };
 
-  const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
+const validateEmail = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+};
 
   const validatePassword = (password) => {
-    // Example: Password must be at least 8 characters long
-    return password.length >= 8;
+    // Example: Password must be at least 8 characters long, including at least one uppercase letter, one lowercase letter, and one number
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return regex.test(password);
   };
 
   const validateConfirmPassword = (confirmPassword) => {
     return confirmPassword === createPassword;
+  };
+
+
+  const Submit = (e) => {
+    e.preventDefault();
+  // async function Submit(e){
+  //   e.preventDefault();
+    // axios
+    //   .post("http://localhost:3000/register", {
+    //     username,
+    //     email,
+    //     createPassword,
+    //     confirmPassword
+    //   })
+    //   .then((result) => {
+    //     console.log(result);
+    //     alert("Registered successfully");
+    //     navigate("/");
+    //   })
+    //   .catch((err) => console.log(err));
+
+  //   try{
+
+  //     await axios.post("http://localhost:3000/register",{
+  //         username,email,createPassword
+  //     })
+  //     .then(res=>{
+  //         if(res.data=="exist"){
+  //             alert("User already registered")
+  //         }
+  //         else if(res.data=="notexist"){
+  //             history("/",{state:{id:email}})
+  //         }
+  //     })
+  //     .catch(e=>{
+  //         alert("wrong details")
+  //         console.log(e);
+  //     })
+
+  // }
+  // catch(e){
+  //     console.log(e);
+
+  // }
   };
 
   const handleSubmit = (e) => {
@@ -114,8 +89,7 @@ function Register() {
     setConfirmPasswordError('');
 
     if (!validateUsername(username)) {
-      // setUsernameError('Username must be at least 4 characters long');
-      setUsernameError('Username enter user name');
+      setUsernameError('Username must be at least 4 characters long and alphanumeric');
       return;
     }
 
@@ -125,7 +99,7 @@ function Register() {
     }
 
     if (!validatePassword(createPassword)) {
-      setPasswordError('Password must be at least 8 characters long');
+      setPasswordError('Password must be at least 8 characters long, including at least one uppercase letter, one lowercase letter, and one number');
       return;
     }
 
@@ -133,33 +107,36 @@ function Register() {
       setConfirmPasswordError('Passwords do not match');
       return;
     }
-    else {
-      alert('Registered successfully');
-     
-    }
 
-    // Submit the form or perform further actions
-    console.log('Username:', username);
-    console.log('Email:', email);
-    console.log('Create Password:', createPassword);
-    console.log('Confirm Password:', confirmPassword);
-  };
+    // Handle successful registration (replace with your backend logic)
+    alert('Registered successfully');
+    navigate('/'); // Assuming '/' is the login or home page
 
-  const Submit = (e) => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:3000/createRegister", {
+    // **Optional:** Send registration data to backend using axios
+    axios 
+    .post("http://localhost:3000/createRegister", {
         username,
         email,
         createPassword,
-        confirmPassword
       })
-      .then((result) => {
-        console.log(result);
-        alert("Registered successfully");
-        navigate("/");
+      .then((response) => {
+        console.log(response);
+        
+        // Handle successful backend response
+      //   if(response.data=="exist"){
+      //     alert("User already registered")
+      // }
+      // else if(response.data=="notexist"){
+      //     history("/",{state:{id:email}})
+      // }
+      
       })
-      .catch((err) => console.log(err));
+      .catch((error) => { 
+        console.error(error);
+        // Handle registration errors
+        // alert("wrong details")
+      });
+    
   };
 
   return (
@@ -168,23 +145,23 @@ function Register() {
         <br />
         <br />
         <div className="registerform my-5 w-25 rounded-3 mx-auto p-4">
-      <form onSubmit={handleSubmit}>
-      <h1 className='text-white text-center'>Registration Form</h1> <br />
+          <form>
+            <h1 className='text-white text-center'>Registration Form</h1> <br />
 
-      <div className="registervalue">
-        <div>
-          {/* <label>Username:</label> */}
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder='UserName'
-          />
-          <div className="error">{usernameError}</div> <br />
-        </div>
-        <div>
-          {/* <label>Email:</label> */}
-          <input
+            <div className="registervalue">
+              <div>
+                {/* <label>Username:</label> */}
+                <input
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder='UserName'
+                />
+                <div className="error">{usernameError}</div> <br />
+              </div>
+              <div>
+                {/* <label>Email:</label> */}
+                <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -215,15 +192,15 @@ function Register() {
         </div> 
         {/* <button type="submit">Register</button> */}
 
-        <button
-              // to="/register"
+        <Link
+              to="/"
               className="border-0 px-3 py-1 text-white fw-small w-100 text-center text-decoration-none fs-5"
               style={{ background: "#5a8077", borderRadius: "5px" }}
               type="submit"
-              onClick={Submit}
+              onClick={handleSubmit}
             >
               Register
-            </button>
+            </Link>
       </form>
       </div>
       </div>

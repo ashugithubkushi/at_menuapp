@@ -291,7 +291,7 @@ const Menu = () => {
 
                 
                 <th  className="body"><h3 className="pizza">Pizza</h3> 
-                  <div className="wrapper"> 
+                  <div className="wrapper">
                   <span className="" name="" onClick={PizzaCountDecre}>
                     -
                   </span>
@@ -683,7 +683,7 @@ const Menu = () => {
       <hr /> </div>
     </section> */}
 
-    <section className="section" >
+    {/* <section className="section" >
       <div className="container">
         Contact info <hr />
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit voluptates quisquam libero, eos ratione 
@@ -695,7 +695,7 @@ const Menu = () => {
     <p>copy rights</p>
           </div>
       </footer>
-    </section>  
+    </section>   */}
 
     
 
@@ -779,12 +779,7 @@ const Menu = () => {
           </button>
         </Modal>
       </div>
-
     </div>
-    
-    
-      
-      
     
   );
 };
