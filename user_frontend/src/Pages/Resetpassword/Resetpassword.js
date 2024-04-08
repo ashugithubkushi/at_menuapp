@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './resetpassword.css'
+import { useNavigate } from 'react-router-dom';
 
 function Resetpassword() {
+  const navigate = useNavigate();
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -22,6 +24,7 @@ function Resetpassword() {
       setPasswordError('');
       alert('Password is valid!');
       console.log(newPassword);
+      navigate('/');
     }
   };
 

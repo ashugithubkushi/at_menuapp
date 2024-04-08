@@ -11,10 +11,10 @@ import Ticket from './Pages/Ticket/Ticket';
 import Register from './Pages/Register/Register';
 import Menu from './Pages/Menu/Menu';
 import Login from './Pages/Login/Login';
-// import MainLayout from './Component/MainLayout';
+import MainLayout from './Component/MainLayout';
 // import Orders from './Pages/Orders/Orders';
 // import RegisteredData from './Pages/RegisteredData/RegisteredData';
-import Sidebar from './Pages/Sidebar';
+import Sidebar from './Pages/Dashboard/Sidebar';
 // import Orders from './Pages/Orders';
 
 function App() {

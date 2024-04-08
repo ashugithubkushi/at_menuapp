@@ -163,3 +163,18 @@
 //   );
 // };
 // export default MainLayout;
+
+
+import { Layout } from 'antd'
+import React from 'react'
+import Sidebar from '../Pages/Dashboard/Sidebar'
+
+const MainLayout = () => {
+  return (
+    <Layout>
+        <Sidebar/>
+    </Layout>
+  )
+}
+
+export default MainLayout

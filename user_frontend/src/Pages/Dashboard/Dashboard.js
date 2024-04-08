@@ -235,15 +235,15 @@
 
 
 import React from 'react'
-import Sidebar from '../Sidebar';
-// import Home from '../Component/Home/Home';
-// import Orders from '../Component/Orders/Orders';
-// import RegisteredData from '../Component/RegisteredData/RegisteredData';
+// import Home from '../../Component/Home/Home';
+// import Orders from '../../Component/Orders/Orders';
+// import RegisteredData from '../../Component/RegisteredData/RegisteredData';
+
 
 const Dashboard = () => {
   return (
     <div>
-      <Sidebar/>
+      {/* <Sidebar/> */}
       {/* <Home/>
       <Orders/>
       <RegisteredData/> */}

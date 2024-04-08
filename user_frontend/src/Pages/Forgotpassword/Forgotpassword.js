@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './forgotpassword.css'
+import { useNavigate } from 'react-router-dom';
 function Forgotpassword() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
 
@@ -19,6 +21,7 @@ function Forgotpassword() {
       setEmailError('');
       alert('Email is valid!');
       console.log(email)
+      navigate('/resetpassword');
     } else {
       setEmailError('Please enter a valid email address');
     }
