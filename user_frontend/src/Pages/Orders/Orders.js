@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import { useParams } from "react-router-dom";
 import { Layout } from "antd";
+import { Box } from "@mui/material";
 
 
 const Orders = () => {
@@ -93,10 +94,11 @@ const [post, setPost] = useState({
 
 
   return (
+
+    <Box sx={{display:"flex"}}>
+      <Sidenav/>
+      <Box component="home" sx={{flexGrow:1, p:3}}>
     <Layout>
-      <div>
-        
-      </div>
 
       <div className="w-100 vh-100 justify-content-center align-items-center">
         <div className="w-100">
@@ -304,6 +306,8 @@ const [post, setPost] = useState({
         </div>
       </div>
     </Layout>
+    </Box>
+    </Box>
   );
 };
 

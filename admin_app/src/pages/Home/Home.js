@@ -1,13 +1,18 @@
 import React from 'react';
 import {Link } from "react-router-dom"; 
 import { useState } from 'react'
-import LineChat from '../LineChart';
-import PieChat from '../PieChart';
+import LineChat from '../../components/LineChart';
+import PieChat from '../../components/PieChart';
+import { Box } from '@mui/material';
+import Sidebar from '../../Sidebar'
 
 const Home = () => {
 
   return (
-    <div className="container-fluid">
+<>
+<Box sx={{display: "flex"}}>
+<Sidebar/>
+<div className="container-fluid">
     <div className="row">
 
       <Link to="subcomponent1" className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
@@ -64,8 +69,10 @@ const Home = () => {
 
       </div>
   </div>
-
+</Box>
   
+    
+  </>
   )
 }
 

@@ -5,6 +5,8 @@ import Modal from "react-modal";
 import { useParams } from "react-router-dom";
 import Layout from "antd/es/layout/layout";
 
+import Sidenav from "../../Component/Sidenav";
+import { Box } from "@mui/material";
 
 const RegisteredData = () => {
   const { id } = useParams();
@@ -38,9 +40,10 @@ const RegisteredData = () => {
    }
 
   return (
+    <Box sx={{display:"flex"}}>
+      <Sidenav/>
     <Layout>
       <div>
-        
       </div>
 
       <div className="w-100 vh-100 justify-content-center align-items-center">
@@ -91,6 +94,7 @@ const RegisteredData = () => {
         </div>
       </div>
     </Layout>
+    </Box>
   )
 }
 

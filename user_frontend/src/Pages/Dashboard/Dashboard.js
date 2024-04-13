@@ -5,6 +5,21 @@
 // import { Table } from 'antd';
 // // import type { TableColumnsType } from 'antd';
 
+// import { BrowserRouter, Route, Routes } from "react-router-dom"
+// import Home from "../Home/Home"
+// import Orders from "../Orders/Orders"
+// import RegisteredData from "../RegisteredData/RegisteredData"
+import Sidenav from "../../Component/Sidenav"
+import Home from "../Home/Home"
+// import Orders from "../Orders/Orders"
+// import RegisteredData from "../RegisteredData/RegisteredData"
+
+
+
+
+
+
+
 
 // const Dashboard = () => {
 
@@ -234,20 +249,22 @@
 
 
 
-import React from 'react'
+// import React from 'react'
 // import Home from '../../Component/Home/Home';
 // import Orders from '../../Component/Orders/Orders';
 // import RegisteredData from '../../Component/RegisteredData/RegisteredData';
 
 
+
+
 const Dashboard = () => {
   return (
-    <div>
-      {/* <Sidebar/> */}
-      {/* <Home/>
-      <Orders/>
-      <RegisteredData/> */}
-    </div>
+   
+    <>
+    <Sidenav/>
+    {/* <Home/> */}
+    </>
+   
   )
 }
 

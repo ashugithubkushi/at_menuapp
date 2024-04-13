@@ -11,17 +11,16 @@ import Ticket from './Pages/Ticket/Ticket';
 import Register from './Pages/Register/Register';
 import Menu from './Pages/Menu/Menu';
 import Login from './Pages/Login/Login';
-import MainLayout from './Component/MainLayout';
+// import MainLayout from './Component/MainLayout';
 // import Orders from './Pages/Orders/Orders';
 // import RegisteredData from './Pages/RegisteredData/RegisteredData';
-import Sidebar from './Pages/Dashboard/Sidebar';
-// import Orders from './Pages/Orders';
+// import Home from './Pages/Home/Home';
 
 function App() {
   return (
   <BrowserRouter>
 
-<Sidebar/>
+{/* <Sidebar/> */}
 
   <Routes>
     <Route path="/" element={<Login/>} />
@@ -31,6 +30,7 @@ function App() {
     <Route path="/forgotpassword" element={<Forgotpassword/>} />
     <Route path="/resetpassword" element={<Resetpassword/>} />
     <Route path="/listscomponents" element={<Listscomponents/>} />
+    {/* <Route path="/home" element={<Home/>} /> */}
     {/* <Route path="/orders" element={<Orders/>} /> */}
     <Route path="/dashboard" element={<Dashboard/>} />
     {/* <Route path="/admin" element={<MainLayout/>}/> */}
