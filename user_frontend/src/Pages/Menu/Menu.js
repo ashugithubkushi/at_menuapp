@@ -310,7 +310,7 @@ const Menu = () => {
                 <div className="body-box">
                 <th  className="body"><h3 className="chat">Chat</h3> 
                   <div className="wrapper"> 
-                  <span className="" name="" onClick={CoolDrinkCountDecre}>
+                  <span className="" name="" onClick={ChatCountDecre}>
                     -
                   </span>
                   <span

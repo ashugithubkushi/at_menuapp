@@ -258,6 +258,9 @@ function Login() {
               />
               <div className="error">{passwordError}</div>
             </div>
+             
+             <br />
+             
             <div className='forgot-password  mt-3 text-end'>
               <Link to="/forgotpassword">Forgot password?</Link>
             </div>

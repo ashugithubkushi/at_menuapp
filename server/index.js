@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const {OrderModel, UserModel, LoginModel, RegisterModel} = require('./models/foodorderdata')
+const {OrderModel, UserModel, LoginModel, RegisterDataModel} = require('./models/foodorderdata')
 
 
 const app = express()
@@ -15,6 +15,13 @@ app.get('/', (req, res) => {
     console.log('mydata',req.body)
     OrderModel.find({})
     // UserModel.find({})
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
+
+app.post("/createOrder", (req, res) => {
+    console.log('mydata',req.body)
+    OrderModel.create(req.body)
     .then(users => res.json(users))
     .catch(err => res.json(err))
 })
@@ -46,12 +53,7 @@ app.get('/', (req, res) => {
 // })
 
 
-app.post("/createOrder", (req, res) => {
-    console.log('mydata',req.body)
-    OrderModel.create(req.body)
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+
 app.post("/createUser", (req, res) => {
     console.log('mydata',req.body)
     UserModel.create(req.body)
@@ -64,12 +66,22 @@ app.post("/createLogin", (req, res) => {
     .then(users => res.json(users))
     .catch(err => res.json(err))
 })
-app.post("/createRegister", (req, res) => {
+
+
+// cg
+app.get('/registerData', (req, res) => {
+    RegisterDataModel.find({})
+    .then(data => res.json(data))
+    .catch(err => res.status(500).json({ message: err.message }));
+});
+app.post("/createRegisterData", (req, res) => {
     console.log('mydata',req.body)
-    RegisterModel.create(req.body)
+    RegisterDataModel.create(req.body)
     .then(users => res.json(users))
     .catch(err => res.json(err))
 })
+
+
 
 // UN & PASSWORD verification
 // app.post('/https://jsonplaceholder.typicode.com/login', (req, res) => {

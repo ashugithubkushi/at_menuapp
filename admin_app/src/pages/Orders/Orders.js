@@ -9,7 +9,8 @@ import { useParams } from "react-router-dom";
 // import PieChat from '../../components/PieChart';
 import { Box } from '@mui/material';
 import Sidebar from '../../Sidebar'
-import Layout from "../../components/Layouts/Layout";
+import Header from "./Header";
+// import Layout from "../../components/Layouts/Layout";
 
 const Orders = () => {
   const { id } = useParams();
@@ -17,16 +18,16 @@ const Orders = () => {
   const [status, setStatus] = useState();
   const [orderStatus, setOrderStatus] = useState([]);
   const [statusform, setStatusform] = useState([]);
-  // const [myValue, setMyValue] = useState("");
-  const [food, setFood] = useState("");
+  const [totalOrdersCount, setTotalOrdersCount] = useState(0);
 
   useEffect(() => {
     axios
       .get("http://localhost:3000")
-      // .then((result) => setOrders(result.data))
+      .then((result) => setOrders(result.data))
       .then((result) => {
         setOrders(result.data);
         // console.log(orders);
+        setTotalOrdersCount(result.data.length);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -79,32 +80,40 @@ const [post, setPost] = useState({
 })
 
   return (
-<>
-<Box sx={{display: "flex"}}>
-<Sidebar/>
-{/* <Box component="main" sx={{fllexGrow:1,p:3}}> */}
- <Layout>
 
-      <div className="w-100 vh-100 justify-content-center align-items-center mt-5">
-        <div className="w-100">
+
+<>
+<Header/>
+
+<Box sx={{display: "flex"}}>
+
+<Sidebar/>
+
+{/* <Box component="main" sx={{fllexGrow:1,p:3}}> */}
+ {/* <Layout> */}
+
+      {/* <div className="w-100 vh-100 justify-content-center align-items-center mt-5"> */}
+      {/* <div className="d-flex vh-100 bg-secondary justify-content-center align-items-center"> */}
+        {/* <div className="w-100"> */}
+        {/* <div className="w-50 bg-white rounded p-3"> */}
           {/* <Link to="/login" className="btn btn-success float-end">
             Logout
           </Link> */}
 
-          <table className="table">
+          <table>
             <thead>
-              <tr className="table-data">
-                <th scope="row">Orderid</th>
-                <th scope="row">Persons</th>
-                <th scope="row">Num of persons</th>
-                <th scope="row">Pizza</th>
-                <th scope="row">Burger</th>
-                <th scope="row">Chats</th>
-                <th scope="row">Coffe</th>
-                <th scope="row">Tea</th>
-                <th scope="row">Cooldrink</th>
-                <th scope="row">Status</th>
-                <th scope="row">Ordered time</th>
+              <tr>
+                <th >Orderid</th>
+                <th >Persons</th>
+                <th >Num of persons</th>
+                <th >Pizza</th>
+                <th >Burger</th>
+                <th >Chats</th>
+                <th >Coffe</th>
+                <th >Tea</th>
+                <th >Cooldrink</th>
+                <th >Status</th>
+                <th >Ordered time</th>
               </tr>
             </thead>
 
@@ -120,7 +129,7 @@ const [post, setPost] = useState({
               return (
                 <tbody>
                   <tr key={i}>
-                    <td className="p-5 m-1" rowSpan={2} scope="row">
+                    <td className="" rowSpan={2}>
                       {i + 1}
                     </td>
                     <td>Elders</td>
@@ -131,7 +140,7 @@ const [post, setPost] = useState({
                     <td>{item.coffeCount}</td>
                     <td>{item.teaCount}</td>
                     <td>{item.coolDrinkCount}</td>
-                    <td className="status-btn p-5 m-1" rowSpan={2} scope="row">
+                    <td className="status-btn " rowSpan={2}>
 
 
 
@@ -266,7 +275,7 @@ const [post, setPost] = useState({
 
 
 
-                    <td class="status-btn p-5 m-1" rowSpan={2} scope="row">
+                    <td class="status-btn" rowSpan={2}>
                       {new Date(item.orderDateTime).toLocaleString(undefined, {
                         timeZone: "Asia/Kolkata",
                       })}
@@ -288,12 +297,12 @@ const [post, setPost] = useState({
             })}
             {/* </tbody> */}
           </table>
-        </div>
-      </div>
-    </Layout>
+        {/* </div> */}
+      {/* </div> */}
+    {/* </Layout> */}
 </Box>
   
-    
+
   </>
   
   )

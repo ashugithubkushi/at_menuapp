@@ -18,6 +18,7 @@ import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Orders from "./pages/Orders/Orders";
 import RegisterData from "./pages/RegisterData/RegisterData";
+import Totalorderdata from "./pages/Dashboard/totalorderdata/Totalorderdata";
 
 // import Headers from "./components/Layouts/Headers";
 
@@ -57,6 +58,7 @@ function App() {
         {/* <Route path='/pieChat' element={<PieChat/>}/> */}
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/registerdata' element={<RegisterData/>}/>
+        <Route path='/totalorderdata' element={<Totalorderdata/>}/>
       </Routes>
       </div>
       </div>

@@ -36,7 +36,7 @@ const Dashboard = () => {
         </div>
       </Link>
 
-      <Link to="subcomponent3" className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
+      <Link to="subcomponent3" className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light" >
         <div className="d-flex justify-content-between p-4 aligh-items-center bg-white border border-secondary shadow-sm">
           <i className='bi bi-currency-dollar fs-1 text-secondary'></i>
           <div>

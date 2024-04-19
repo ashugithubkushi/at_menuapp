@@ -8,6 +8,7 @@ import { Layout } from "antd";
 import { Box } from "@mui/material";
 
 
+
 const Orders = () => {
   const { id } = useParams();
   const [orders, setOrders] = useState([]);
@@ -20,7 +21,7 @@ const Orders = () => {
   useEffect(() => {
     axios
       .get("http://localhost:3000")
-      // .then((result) => setOrders(result.data))
+      .then((result) => setOrders(result.data))
       .then((result) => {
         setOrders(result.data);
         // console.log(orders);
@@ -96,8 +97,10 @@ const [post, setPost] = useState({
   return (
 
     <Box sx={{display:"flex"}}>
-      <Sidenav/>
+      {/* <Sidenav/> */}
       <Box component="home" sx={{flexGrow:1, p:3}}>
+
+       
     <Layout>
 
       <div className="w-100 vh-100 justify-content-center align-items-center">

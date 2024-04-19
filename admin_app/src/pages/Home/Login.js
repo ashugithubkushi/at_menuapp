@@ -427,12 +427,16 @@ function Login() {
               />
               <div className="error">{passwordError}</div>
             </div>
+
+            <br />
+
             <div className='forgot-password  mt-3 text-end'>
               <Link to="/forgotpassword">Forgot password?</Link>
             </div>
+            
 
             <Link
-              to="/listcomponents"
+              // to="/listcomponents"
               className='border-0 px-3 py-1 text-white fw-small w-100 text-center text-decoration-none fs-5'
               style={{ background: "#5a8077", borderRadius: "5px" }}
               type='submit'
@@ -443,24 +447,87 @@ function Login() {
 
             <br />
             <br />
+            {/* <br />
             <h5 className='text-center text-white'>or</h5>
-            <br />
-            <Link
+            <br /> */}
+            {/* <Link
             to="/register"
               className='border-0 px-3 py-1 text-white fw-small w-100 text-center text-decoration-none fs-5'
                         style={{background: "#5a8077" , borderRadius: "5px"}}
                         type='submit'
                         >
                           Register 
-                        </Link>
+                        </Link> */}
               
                     </form>
                   </div>
                   </div>
                   </div>
-                );
-              }
-              
+
+    // <div>
+    // <div className="login py-5" style={{ minHeight: '100vh' }}>
+    //   <br />
+    //   <br />
+    //   <div className="loginform my-5 w-25 rounded-3 mx-auto p-4">
+    //     <form onSubmit={handleSubmit}>
+    //       <h2 className='text-white text-center'>Login Form</h2><br />
+    //       <div>
+    //         {/* <label>Email:</label> */}
+    //         <input
+    //           type="email"
+    //           value={email}
+    //           onChange={(e) => setEmail(e.target.value)}
+    //           placeholder='Enter email address'
+    //         />
+    //         <div className="error">{emailError}</div>
+    //       </div>
+    //       <br />
+    //       <div>
+    //         {/* <label>Password:</label> */}
+    //         <input
+    //           type="password"
+    //           value={password}
+    //           onChange={(e) => setPassword(e.target.value)}
+    //           placeholder='Enter password'
+    //         />
+    //         <div className="error">{passwordError}</div>
+    //       </div>
+           
+    //        <br />
+           
+    //       <div className='forgot-password  mt-3 text-end'>
+    //         <Link to="/forgotpassword">Forgot password?</Link>
+    //       </div>
+
+    //       <Link
+    //         // to="/dashboard"
+    //         className='border-0 px-3 py-1 text-white fw-small w-100 text-center text-decoration-none fs-5'
+    //         style={{ background: "#5a8077", borderRadius: "5px" }}
+    //         type='submit'
+    //         onClick={handleSubmit}
+    //       >
+    //         Login
+    //       </Link>
+
+    //       <br />
+    //       <br />
+    //       <h5 className='text-center text-white'>or</h5>
+    //       <br />
+    //       <Link
+    //       to="/register"
+    //         className='border-0 px-3 py-1 text-white fw-small w-100 text-center text-decoration-none fs-5'
+    //                   style={{background: "#5a8077" , borderRadius: "5px"}}
+    //                   type='submit'
+    //                   >
+    //                     Register 
+    //                   </Link>
+            
+    //               </form>
+    //             </div>
+    //             </div>
+    //             </div>
+              );
+            }
    export default Login;
               
               

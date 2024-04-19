@@ -1,0 +1,64 @@
+/* App.css */
+.app {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+  
+  .dropdown-container {
+    margin-bottom: 20px;
+  }
+  
+  .submitted-values {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  th, td {
+    text-align: left;
+  }
+  
+
+
+  /* table */
+  .bordered-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .bordered-table th, .bordered-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .bordered-table th {
+    background-color: #f2f2f2;
+  }
+  
+
+  input{
+    border: none;
+    width: auto;
+  }
+
+  .bordered-table{
+    border-collapse: collapse;
+    width: 100%;
+  }

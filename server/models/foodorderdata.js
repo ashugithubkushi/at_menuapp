@@ -33,11 +33,11 @@ const LoginSchema = new mongoose.Schema({
        password: String,
 
 });
-const RegisterSchema = new mongoose.Schema({
+const RegisterDataSchema = new mongoose.Schema({
         username: String,
         email: String,
-        createPassword: String,
-        confirmPassword: String,
+        password: String,
+        confirmpassword: String,
 });
 
 
@@ -45,8 +45,8 @@ const RegisterSchema = new mongoose.Schema({
 const OrderModel = mongoose.model("fod", OrderSchema);
 const UserModel = mongoose.model("user", UserSchema);
 const LoginModel = mongoose.model("login", LoginSchema);
-const RegisterModel = mongoose.model("register", RegisterSchema);
-module.exports = {OrderModel, UserModel, LoginModel, RegisterModel };
+const RegisterDataModel = mongoose.model("registerdata", RegisterDataSchema);
+module.exports = {OrderModel, UserModel, LoginModel, RegisterDataModel };
 
 
 
