@@ -74,12 +74,65 @@ app.get('/registerData', (req, res) => {
     .then(data => res.json(data))
     .catch(err => res.status(500).json({ message: err.message }));
 });
-app.post("/createRegisterData", (req, res) => {
-    console.log('mydata',req.body)
-    RegisterDataModel.create(req.body)
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
+// app.post("/createRegisterData", (req, res) => {
+//     console.log('mydata',req.body)
+//     RegisterDataModel.create(req.body)
+//     .then(users => res.json(users))
+//     .catch(err => res.json(err))
+// })
+app.post("/createRegisterData", async (req, res) => {
+    try {
+        const existingUser = await RegisterDataModel.findOne({ email: req.body.email });
+        if (existingUser) {
+            // Email already exists, return an error response
+            return res.status(409).json({ message: "Email already exists" });
+        } else {
+            // Email doesn't exist, create a new registration entry
+            const newUser = await RegisterDataModel.create(req.body);
+            return res.status(201).json(newUser);
+        }
+    } catch (error) {
+        // Handle any errors
+        console.error(error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+// Login Endpoint
+// app.post("/login", async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+//         const user = await RegisterDataModel.findOne({ email, password });
+//         if (user) {
+//             // User is authenticated, return success response
+//             return res.status(200).json({ isAuthenticated: true });
+//         } else {
+//             // Unauthorized user, return error response
+//             return res.status(401).json({ isAuthenticated: false, message: "Unauthorized user" });
+//         }
+//     } catch (error) {
+//         // Handle any errors
+//         console.error(error);
+//         return res.status(500).json({ message: "Internal server error" });
+//     }
+// });
+app.post("/login", async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await RegisterDataModel.findOne({ email, password });
+        if (user) {
+            // User is authenticated, return success response
+            return res.status(200).json({ isAuthenticated: true });
+        } else {
+            // Unauthorized user, return specific error response
+            return res.status(401).json({ isAuthenticated: false, message: "Invalid email or password" });
+        }
+    } catch (error) {
+        // Handle any errors
+        console.error(error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+});
 
 
 

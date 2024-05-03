@@ -1,79 +1,103 @@
-import React from 'react';
-import {Link } from "react-router-dom"; 
-import { useState } from 'react'
-import LineChat from '../../components/LineChart';
-import PieChat from '../../components/PieChart';
-import { Box } from '@mui/material';
-import Sidebar from '../../Sidebar'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Box } from "@mui/material";
+import Sidebar from "../../Sidebar";
+import Header from "../Orders/Header";
+import {
+  Dashboard as DashboardIcon,
+  ShoppingCart as OrdersIcon,
+  Assignment as RegisterDataIcon,
+} from "@mui/icons-material";
 
-const Dashboard = () => {
-
+const Dashboard = ({ totalOrdersCount }) => {
   return (
-<>
-<Box sx={{display: "flex"}}>
-<Sidebar/>
-<div className="container-fluid">
-    <div className="row">
+    <>
+      <Header showCounts={false} />
+      <Box sx={{ display: "flex" }}>
+        <Sidebar />
+        <div className="container-fluid bg-white">
+          <div className="row">
 
-      <Link to="subcomponent1" className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-        <div className="d-flex justify-content-between p-4 aligh-items-center bg-white border border-secondary shadow-sm">
-          {/* <i className='bi bi-currency-dollar fs-1 text-success'></i> */}
-          <i class="bi bi-bar-chart" aria-hidden="true"></i>
-          <div>
-            <span>Orders</span>
-            <h2>123</h2>
+            {/* Order data */}
+            <div className="col-md-6 col-lg-6 p-3">
+              <Link to="/orders" className="p-3">
+                <div className="d-flex justify-content-between p-5 mb-5 mr-5 align-items-center  border-secondary shadow-sm" 
+              style={{ 
+                backgroundColor: '#e7e0e0', 
+                border: 'none', 
+                borderRadius: "10px",
+                transition: 'background-color 0.3s ease, transform 0.3s ease',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#d8d2d4';
+                e.target.style.transform = 'scale(0.95)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = '#e7e0e0';
+                e.target.style.transform = 'scale(1)';
+              }}
+              >
+                  <OrdersIcon
+                    fontSize="large"
+                    style={{ fontSize: "5rem", color: "#4CAF50" }}
+                  />
+                  <div>
+                    <span
+                      className="fw-bold fs-5"
+                      style={{ fontSize: "1.5rem", color: "#4CAF50" }}
+                    >
+                      Orders
+                      <h2>Total Order IDs: {totalOrdersCount}</h2>
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+
+
+           {/* Register data */}
+            <div className="col-md-6 col-lg-6 p-3">
+              <Link to="/orders" className="p-3 ">
+                <div className="d-flex justify-content-between p-5 mb-5 mr-5 align-items-center  border-secondary shadow-sm" 
+              style={{ 
+                backgroundColor: '#e7e0e0', 
+                border: 'none', 
+                borderRadius: "10px",
+                transition: 'background-color 0.3s ease, transform 0.3s ease',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#d8d2d4';
+                e.target.style.transform = 'scale(0.95)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = '#e7e0e0';
+                e.target.style.transform = 'scale(1)';
+              }}
+              >
+                  <RegisterDataIcon
+                    fontSize="large"
+                    style={{ fontSize: "5rem", color: "#674ae6" }}
+                  />
+                  <div>
+                    <span
+                      className="fw-bold fs-5"
+                      style={{ fontSize: "1.5rem", color: "#674ae6" }}
+                    >
+                      Register Data
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
           </div>
         </div>
-      </Link>
+      </Box>
+    </>
+  );
+};
 
-      <Link to="subcomponent2" className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-        <div className="d-flex justify-content-between p-4 aligh-items-center bg-white border border-secondary shadow-sm">
-          <i className='bi bi-currency-dollar fs-1 text-danger'></i>
-          <div>
-            <span>Orders</span>
-            <h2>123</h2>
-          </div>
-        </div>
-      </Link>
-
-      <Link to="subcomponent3" className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light" >
-        <div className="d-flex justify-content-between p-4 aligh-items-center bg-white border border-secondary shadow-sm">
-          <i className='bi bi-currency-dollar fs-1 text-secondary'></i>
-          <div>
-            <span>Orders</span>
-            <h2>123</h2>
-          </div>
-        </div>
-      </Link>
-
-      <Link to="subcomponent4" className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-        <div className="d-flex justify-content-between p-4 aligh-items-center bg-white border border-secondary shadow-sm">
-          <i className='bi bi-currency-dollar fs-1 text-primary'></i>
-          <div>
-            <span>Orders</span>
-            <h2>123</h2>
-          </div>
-        </div>
-      </Link>
-    </div>
-
-    <div className="row">
-        <div className="col-12 col-md-8 p-3">
-          <LineChat />
-        </div>
-
-        <div className="col-12 col-md-4 p-3">
-          <PieChat />
-        </div>
-
-
-      </div>
-  </div>
-</Box>
-  
-    
-  </>
-  )
-}
-
-export default Dashboard
+export default Dashboard;

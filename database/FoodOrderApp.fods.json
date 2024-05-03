@@ -1,71 +1,86 @@
 [{
   "_id": {
-    "$oid": "65d72b190d3bf059e6a70538"
+    "$oid": "66279aa66f32301eeb14b768"
   },
-  "numberOfElders": 4,
-  "pizzaCount": 1,
-  "burgerCount": 2,
-  "chatCount": 3,
-  "coffeCount": 4,
-  "teaCount": 5,
-  "coolDrinkCount": 6,
-  "numberOfChild": 2,
-  "pizzaCount1": 1,
-  "burgerCount1": 3,
-
-  "chatCount1": 1,
-  "coffeCount1": 8,
-  "teaCount1": 4,
-  "coolDrinkCount1": 2,
-  "orderDateTime": {
-    "$date": "2024-02-22T11:08:09.092Z"
-  },
-  "__v": 0
-},
-{
-
-  "_id": {
-    "$oid": "65d734b70d3bf059e6a70551"
-  },
-  "numberOfElders": 6,
-  "pizzaCount": 3,
-  "burgerCount": 4,
-  "chatCount": 6,
-  "coffeCount": 4,
-  "teaCount": 2,
-  "coolDrinkCount": 3,
-  "numberOfChild": 4,
-  "pizzaCount1": 3,
-  "burgerCount1": 4,
-  "chatCount1": 1,
-  "coffeCount1": 4,
-  "teaCount1": 2,
-  "coolDrinkCount1": 6,
-  "orderDateTime": {
-    "$date": "2024-02-22T11:49:11.002Z"
-  },
+  "elders": [
+    {
+      "dropdownValue": "Chat",
+      "incrementValue": 3,
+      "_id": {
+        "$oid": "66279aa66f32301eeb14b769"
+      }
+    }
+  ],
+  "children": [
+    {
+      "dropdownValue": "Pizza",
+      "incrementValue": 3,
+      "_id": {
+        "$oid": "66279aa66f32301eeb14b76a"
+      }
+    }
+  ],
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "65d7392b0d3bf059e6a70559"
+    "$oid": "66279bd36f32301eeb14b76c"
   },
-  "numberOfElders": 2,
-  "pizzaCount": 2,
-  "burgerCount": 3,
-  "chatCount": 1,
-  "coffeCount": 7,
-  "teaCount": 3,
-  "coolDrinkCount": 3,
-  "numberOfChild": 3,
-  "pizzaCount1": 5,
-  "burgerCount1": 2,
-  "chatCount1": 2,
-  "coffeCount1": 3,
-  "teaCount1": 4,
-  "coolDrinkCount1": 1,
-  "orderDateTime": {
-    "$date": "2024-02-22T12:08:11.686Z"
+  "elders": [
+    {
+      "dropdownValue": "Tea",
+      "incrementValue": 4,
+      "_id": {
+        "$oid": "66279bd36f32301eeb14b76d"
+      }
+    }
+  ],
+  "children": [
+    {
+      "dropdownValue": "Chat",
+      "incrementValue": 4,
+      "_id": {
+        "$oid": "66279bd36f32301eeb14b76e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662891901d33a7a7a2b778ae"
   },
+  "elders": [
+    {
+      "dropdownValue": "Pizza",
+      "incrementValue": 3,
+      "_id": {
+        "$oid": "662891901d33a7a7a2b778af"
+      }
+    },
+    {
+      "dropdownValue": "Coffee",
+      "incrementValue": 4,
+      "_id": {
+        "$oid": "662891901d33a7a7a2b778b0"
+      }
+    }
+  ],
+  "children": [
+    {
+      "dropdownValue": "Pizza",
+      "incrementValue": 3,
+      "_id": {
+        "$oid": "662891901d33a7a7a2b778b1"
+      }
+    },
+    {
+      "dropdownValue": "Tea",
+      "incrementValue": 1,
+      "_id": {
+        "$oid": "662891901d33a7a7a2b778b2"
+      }
+    }
+  ],
   "__v": 0
 }]

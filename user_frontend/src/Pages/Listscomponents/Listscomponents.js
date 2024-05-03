@@ -37,7 +37,7 @@ const Listscomponents = () => {
     <div className="box">
     <h1 className='heading'>Menu</h1>
         {/* <img src="" alt="" /> */}
-       <Link to="/both"><p>Click here for Menu</p></Link>
+       <Link to="/menuu"><p>Click here for Menu</p></Link>
     </div>
     
     <div className="box">

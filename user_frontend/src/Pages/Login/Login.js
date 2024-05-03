@@ -191,43 +191,81 @@ function Login() {
     return regex.test(password);
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setEmailError('');
+  //   setPasswordError('');
+
+  //   if (!validateEmail(email)) {
+  //     setEmailError('Please enter a valid email address');
+  //     return;
+  //   }
+
+  //   if (!validatePassword(password)) {
+  //     setPasswordError('Password must be at least 8 characters long, including at least one uppercase letter, one lowercase letter, and one number');
+  //     return;
+  //   }
+
+  //   // Submit the form data to your backend using axios
+  //   axios.post("http://localhost:3000/createLogin", {
+  //     email,
+  //     password,
+  //   })
+  //     .then((response) => {
+  //       console.log(response);
+  //       // if (response.data.success) { // Assuming your backend returns a success flag
+  //         alert("Logged in successfully");
+  //         navigate("/listscomponents");
+  //       // } else {
+  //       //   alert("Invalid login credentials"); // Handle failed login attempt
+  //       // }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //       // alert("An error occurred. Please try again later."); 
+  //       // Handle unexpected errors
+  //     });
+
+  //   // Removed unnecessary console logs and the `addPosts` function (use axios for backend communication)
+  // };
+
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setEmailError('');
-    setPasswordError('');
+  e.preventDefault();
+  setEmailError('');
+  setPasswordError('');
 
-    if (!validateEmail(email)) {
-      setEmailError('Please enter a valid email address');
-      return;
-    }
+  if (!validateEmail(email)) {
+    setEmailError('Please enter a valid email address');
+    return;
+  }
 
-    if (!validatePassword(password)) {
-      setPasswordError('Password must be at least 8 characters long, including at least one uppercase letter, one lowercase letter, and one number');
-      return;
-    }
+  if (!validatePassword(password)) {
+    setPasswordError('Password must be at least 8 characters long, including at least one uppercase letter, one lowercase letter, and one number');
+    return;
+  }
 
-    // Submit the form data to your backend using axios
-    axios.post("http://localhost:3000/createLogin", {
-      email,
-      password,
+  // Submit the form data to your backend using axios
+  axios.post("http://localhost:3000/login", {
+    email,
+    password,
+  })
+    .then((response) => {
+      console.log(response);
+      if (response.data.isAuthenticated) {
+        alert("Logged in successfully");
+        navigate("/listscomponents");
+      } else {
+        // alert("Unauthorized user"); 
+      }
     })
-      .then((response) => {
-        console.log(response);
-        // if (response.data.success) { // Assuming your backend returns a success flag
-          alert("Logged in successfully");
-          navigate("/listscomponents");
-        // } else {
-        //   alert("Invalid login credentials"); // Handle failed login attempt
-        // }
-      })
-      .catch((error) => {
-        console.error(error);
-        // alert("An error occurred. Please try again later."); 
-        // Handle unexpected errors
-      });
-
-    // Removed unnecessary console logs and the `addPosts` function (use axios for backend communication)
-  };
+    .catch((error) => {
+      console.error(error);
+      // alert("An error occurred. Please try again later.");
+      alert("Unauthorized user, Kindly register and try for login");
+      setEmail('');
+      setPassword('');
+    });
+};
 
   return (
     <div>

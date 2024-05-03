@@ -10,12 +10,12 @@ const DropdownPerson = ({ onChange }) => {
 
   return (
     <div className="dropdown">
-      {/* <h3>Person</h3>
+      <h3>Person</h3>
       <select onChange={handleDropdownChange}>
         <option disabled value="">Select an option</option>
         <option value="Elder">Elder</option>
         <option value="Children">Children</option>
-      </select> */}
+      </select>
     </div>
   );
 };

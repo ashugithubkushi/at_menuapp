@@ -1,6 +1,9 @@
 // https://chat.openai.com/c/6cc49608-e8b2-4c29-a2d3-8c68494936fd
 https://chat.openai.com/c/6cc49608-e8b2-4c29-a2d3-8c68494936fd
 
+//github hoisting
+https://www.youtube.com/watch?v=s8ZLs6oerYQ
+
 npm install @mui/material @emotion/react @emotion/styled
 
 npm audit fix
@@ -138,4 +141,27 @@ export default Home
 
 
 
+
+<!--  orders count and elders data -->
+
+{orders.map((item, i) => {
+              
+  return (
+    <tbody>
+      <tr key={i}>
+{/* Count update */}
+        <td className="" rowSpan={2}>
+          {i + 1}
+        </td>
+
+
+{/* Elder count update  */}
+        <td>Elders</td>
+        <td>{item.numberOfElders}</td>
+        {/* <td>{item.pizzaCount}</td>
+        <td>{item.burgerCount}</td>
+        <td>{item.chatCount}</td>
+        <td>{item.coffeCount}</td>
+        <td>{item.teaCount}</td>
+        <td>{item.coolDrinkCount}</td> */}
 

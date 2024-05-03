@@ -20,6 +20,40 @@ const Orders = () => {
   const [statusform, setStatusform] = useState([]);
   const [totalOrdersCount, setTotalOrdersCount] = useState(0);
 
+
+
+  const [pendingCount, setPendingCount] = useState(0);
+  const [inProgressCount, setInProgressCount] = useState(0);
+  const [orderedCount, setOrderedCount] = useState(0);
+
+  useEffect(() => {
+    // Fetch orders from local storage if available
+    const ordersData = JSON.parse(localStorage.getItem("orders")) || [];
+    setOrders(ordersData);
+    countStatus(ordersData);
+
+    // Fetch latest orders from the database
+    fetchOrdersFromDatabase();
+  }, []);
+
+  useEffect(() => {
+    // Update local storage whenever orders change
+    localStorage.setItem("orders", JSON.stringify(orders));
+    countStatus(orders);
+  }, [orders]);
+
+  const fetchOrdersFromDatabase = () => {
+    axios
+      .get("http://localhost:3000")
+      .then((result) => {
+        setOrders(result.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+
+
+
   useEffect(() => {
     axios
       .get("http://localhost:3000")
@@ -27,10 +61,37 @@ const Orders = () => {
       .then((result) => {
         setOrders(result.data);
         // console.log(orders);
-        setTotalOrdersCount(result.data.length);
+        // setTotalOrdersCount(result.data.length);
+        countStatus(result.data);
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const countStatus = (orders) => {
+    let pending = 0;
+    let inProgress = 0;
+    let ordered = 0;
+    orders.forEach((order) => {
+      switch (order.status) {
+        case 'Pending':
+          pending++;
+          break;
+        case 'In progress':
+          inProgress++;
+          break;
+        case 'Ordered':
+          ordered++;
+          break;
+        default:
+          break;
+      }
+    });
+    setPendingCount(pending);
+    setInProgressCount(inProgress);
+    setOrderedCount(ordered);
+  };
+
+
 
 
 
@@ -44,6 +105,7 @@ const Orders = () => {
         // console.log(status);
 
         // navigate('/')
+        fetchOrdersFromDatabase();
     })
     .catch(err => console.log(err))
    }
@@ -83,7 +145,11 @@ const [post, setPost] = useState({
 
 
 <>
-<Header/>
+<Header showCounts={true}
+  pendingCount={pendingCount}
+  inProgressCount={inProgressCount}
+  orderedCount={orderedCount}
+/>
 
 <Box sx={{display: "flex"}}>
 
@@ -103,17 +169,13 @@ const [post, setPost] = useState({
           <table>
             <thead>
               <tr>
-                <th >Orderid</th>
-                <th >Persons</th>
-                <th >Num of persons</th>
-                <th >Pizza</th>
-                <th >Burger</th>
-                <th >Chats</th>
-                <th >Coffe</th>
-                <th >Tea</th>
-                <th >Cooldrink</th>
-                <th >Status</th>
-                <th >Ordered time</th>
+              <th >Orderid</th>
+                 <th >Persons</th>
+                 <th >Num of persons</th>
+                 <th >Total chat count</th>
+                 <th >Status</th>
+                 <th >Ordered time</th>
+                 
               </tr>
             </thead>
 
@@ -131,15 +193,17 @@ const [post, setPost] = useState({
                   <tr key={i}>
                     <td className="" rowSpan={2}>
                       {i + 1}
+                      {/* <td>{item._id}</td> */}
                     </td>
                     <td>Elders</td>
-                    <td>{item.numberOfElders}</td>
-                    <td>{item.pizzaCount}</td>
-                    <td>{item.burgerCount}</td>
-                    <td>{item.chatCount}</td>
-                    <td>{item.coffeCount}</td>
-                    <td>{item.teaCount}</td>
-                    <td>{item.coolDrinkCount}</td>
+                    <td>{item.elder.selectedElder}</td> {/* Display selected elder count */}
+                    <td>
+          {item.elder.tableData?.map((data, index) => (
+            <div key={index}>
+              {data.option}: {data.count}
+            </div>
+          ))}
+        </td>
                     <td className="status-btn " rowSpan={2}>
 
 
@@ -160,118 +224,7 @@ const [post, setPost] = useState({
                 <option value="Ordered" selected={item.status === 'Ordered' ? 'selected':'' }>Ordered</option>
                 </select>
      </div>
-
-
-{/* 
-              <div>
-                <input type="text"
-                onChange={(event) => {
-                  const value = event.target.value;
-                  setFood(value);
-                }} ></input>
-                {food}
-              </div> */}
-
-            
-                
-          
-
-            {/* <div>
-      <select
-        onChange={(e) => setMyValue(e.target.value)}
-        defaultValue={myValue}
-      >
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-      </select>
-      <h2>
-        {" "}
-        You selected{" "}
-        <span style={{ backgroundColor: "yellow" }}>{myValue}</span>
-      </h2>
-      <button class="btn btn-success p-2  m-1"
-                            type="submit" 
-                            // onClick={() => setStatus(false)}
-                onChange={(e) => setMyValue(e.target.value)}
-
-                            onClick={e => Update(e,item._id)}
-                          > 
-                            OK
-                          </button>
-                        </div> */}
-
-
-                      {/* select form */}
-                      {/* <div>
-                        <button class="btn btn-success p-2 m-1"
-                          type="btn"
-                          onClick={() => setStatus(true)}
-                onChange={(e) => setStatus(e.target.value)}
-                          
-                        >
-                          {
-                            item.status?item.status : "status"
-                          }
-                        </button>
-                        <Modal
-                          isOpen={status}
-                          onRequestClose={() => setStatus(false)}
-                          style={{
-                            overlay: {
-                              position: "fixed",
-                              zIndex: 1020,
-                              top: 0,
-                              left: 0,
-                              width: "100vw",
-                              height: "100vh",
-                              // background: "rgba(255, 255, 255, 0.75)",
-                              background: "rgba(255, 255, 255, 0.2)",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                            },
-                            content: {
-                              background: "rgba(64, 64, 64, 0.2)", 
-                              width: "45rem",
-                              maxWidth: "calc(40vw - 2rem)",
-                              maxHeight: "calc(100vh - 2rem)",
-                              overflowY: "auto",
-                              position: "relative",
-                              border: "1px solid #ccc",
-                              borderRadius: "0.3rem",
-                            },
-                          }}
-                        >
-                          
-                          <h1>Ordered Status</h1>
-                            
-                          <label className="m-3 p-4">
-              <select
-                style={{ width: 250 }}
-                className="form-control"
-                type="dropdown"
-                name="snacks"
-                onChange={(e) => setOrderStatus(e.target.value)}
-              >
-                <option value="N/A">N/A</option>
-                <option value="order">Orderd</option>
-                <option value="pending">Pending</option>
-                <option value="in progress">In progress</option>
-              </select>
-            </label>
-                             
-                          <button class="btn btn-success p-2  m-1"
-                            type="submit" 
-                            // onClick={() => setStatus(false)}
-                            onClick={e => Update(e,item._id)}
-                          > 
-                            OK
-                          </button>
-                          
-                        </Modal>
-                      </div> */}
-                    </td>
+</td>
 
 
 
@@ -284,14 +237,16 @@ const [post, setPost] = useState({
                   <tr key={i}>
                     {/* <td scope="row">{i + 1}</td> */}
                     <td>Childrens</td>
-                    <td>{item.numberOfChild}</td>
-                    <td>{item.pizzaCount1}</td>
-                    <td>{item.burgerCount1}</td>
-                    <td>{item.chatCount1}</td>
-                    <td>{item.coffeCount1}</td>
-                    <td>{item.teaCount1}</td>
-                    <td>{item.coolDrinkCount1}</td>
-                  </tr>
+                    <td>{item.children.selectedChildren}</td> 
+                    <td>
+          {item.children.childrenTableData?.map((data, index) => (
+            <div key={index}>
+              {data.option}: {data.count}
+            </div>
+          ))}
+        </td>
+                    
+                    </tr>
                 </tbody>
               );
             })}

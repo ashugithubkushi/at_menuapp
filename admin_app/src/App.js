@@ -18,7 +18,9 @@ import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Orders from "./pages/Orders/Orders";
 import RegisterData from "./pages/RegisterData/RegisterData";
-import Totalorderdata from "./pages/Dashboard/totalorderdata/Totalorderdata";
+import OrderDetails from "./OrderDetails/OrderDetails";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 // import Headers from "./components/Layouts/Headers";
 
@@ -26,11 +28,26 @@ import Totalorderdata from "./pages/Dashboard/totalorderdata/Totalorderdata";
 
 
 function App() {
+  const [totalOrdersCount, setTotalOrdersCount] = useState(0);
 
+  useEffect(() => {
+    // Fetch orders count from backend
+    const fetchOrdersCount = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/ordersCount");
+        setTotalOrdersCount(response.data.totalOrdersCount);
+      } catch (error) {
+        console.error("Error fetching orders count:", error);
+      }
+    };
+
+    fetchOrdersCount();
+  }, []);
   
   return (
     
     <BrowserRouter>
+     
 
 
      {/* <div><Navbar/></div> */}
@@ -56,9 +73,9 @@ function App() {
         {/* <Route path="testdropdown" element={<Testdropdown/>} /> */}
         {/* <Route path='/lineChat' element={<LineChat/>}/> */}
         {/* <Route path='/pieChat' element={<PieChat/>}/> */}
-        <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/registerdata' element={<RegisterData/>}/>
-        <Route path='/totalorderdata' element={<Totalorderdata/>}/>
+        <Route path='/dashboard' element={<Dashboard totalOrdersCount={totalOrdersCount} />} />
+        <Route path='/registerdata' element={<RegisterData/>} />
+        <Route path='/orderdetails' element={<OrderDetails/>} />
       </Routes>
       </div>
       </div>

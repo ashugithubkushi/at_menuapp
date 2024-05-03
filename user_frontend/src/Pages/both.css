@@ -1,64 +1,141 @@
-/* App.css */
+/* both.css */
+
 .app {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  /* max-width: 800px; */
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: antiquewhite;
+}
+
+.text {
+  color: #51614a; /* Choose your desired color */
+  font-size: 50px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the text bold */
+  margin: 20px; /* Add space below the heading */
+}
+
+label {
+  font-size: 18px;
+}
+
+select,
+input[type="number"] {
+  font-size: 16px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* box */
+.box{
+  margin: 5px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-container {
+  margin-bottom: 20px;
+  /* display: flex; */
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust the gap as needed */
+}
+
+.dropdown-container select {
+  /* flex: 1; */
+  max-width: calc(50% - 5px); /* Adjust the width of each select */
+}
+
+.dropdown-container select:first-child {
+  margin-right: 10px; /* Add margin between the select elements */
+}
 
 
-  
-  .dropdown-container {
-    margin-bottom: 20px;
-  }
-  
-  .submitted-values {
-    margin-top: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 8px;
-    border: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  th, td {
-    text-align: left;
-  }
-  
+
+/* button {
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} */
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.submitted-values {
+  margin-top: 20px;
+}
+
+.bordered-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.bordered-table th, .bordered-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.bordered-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+  color: #000;
+  text-align: center;
+}
+
+.bordered-table td {
+  text-align: center;
+}
+
+.bordered-table input[type="number"] {
+  width: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.bordered-table button {
+  padding: 5px 10px;
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bordered-table button:hover {
+  background-color: #ff4747;
+}
 
 
-  /* table */
-  .bordered-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  .bordered-table th, .bordered-table td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  .bordered-table th {
-    background-color: #f2f2f2;
-  }
-  
+.delete-button {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  input{
-    border: none;
-    width: auto;
-  }
+.delete-button:hover {
+  background-color: #e64a19;
+}
 
-  .bordered-table{
-    border-collapse: collapse;
-    width: 100%;
-  }
+
+.flex-container {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+}
+
+.elder-section,
+.children-section {
+  flex: 1;
+}

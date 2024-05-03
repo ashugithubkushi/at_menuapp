@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import Sidebar from "../../Sidebar";
 import './registerdata.css'
+import Header from "../Orders/Header";
 
 const RegisterData = () => {
   const { id } = useParams();
@@ -34,6 +35,8 @@ const RegisterData = () => {
   // };
 
   return (
+    <>
+    <Header showCounts={false}/>
     <Box sx={{ display: "flex" }}>
       <Sidebar />
       <div>
@@ -80,6 +83,7 @@ const RegisterData = () => {
         {/* </div> */}
       {/* </div> */}
     </Box>
+    </>
   );
 };
 

@@ -1,0 +1,18 @@
+/* Customize the logo or site name */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Style the badge for notification counts */
+  .badge {
+    margin-left: 5px;
+    font-size: 0.75rem;
+  }
+  
+  /* Center the user name and logout button */
+  .navbar-nav .nav-item:last-child {
+    display: flex;
+    align-items: center;
+  }
+  
