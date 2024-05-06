@@ -788,12 +788,13 @@ const Both = () => {
 
 
   return (
-    <div className="app">
+    <div>
+    <div className="app d-flex">
       <div className="elder-section">
       <h1 className="text">Elders</h1>
       <div className="box">
       <div className="dropdown-container d-flex">
-      <label htmlFor="elder"><h5>Elder Count:</h5></label>
+      <label htmlFor="elder"><h5>Elders Count:</h5></label>
       <select id="elder" value={elder} onChange={handleElderChange}>
         {[...Array(10).keys()].map((num) => (
           <option key={num} value={num}>{num}</option>
@@ -885,11 +886,12 @@ const Both = () => {
       </div>
 
 <br /><br />
+
 <div className="children-section">
       <h1 className="text">Childrens</h1>
       <div className="box">
       <div className="dropdown-container d-flex">
-      <label htmlFor="children"><h5>Children count:</h5></label>
+      <label htmlFor="children"><h5>Childrens count:</h5></label>
       <select id="children" value={children} onChange={handleChildrenChange}>
         {[...Array(10).keys()].map((num) => (
           <option key={num} value={num}>{num}</option>
@@ -980,13 +982,16 @@ const Both = () => {
       <br />   
       <br /> 
       </div>
-       <br />
+      
     </div>
-    <button className="btn btn-success " onClick={handleSubmit}>
-  Submit
+   
+    </div>
+
+
+<button className="btn btn-primary float-end m-4" onClick={handleSubmit}>
+Submit
 </button>
-    </div>
-    
+</div>
   );
 };
 

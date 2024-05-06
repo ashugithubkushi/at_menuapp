@@ -245,7 +245,7 @@ const [post, setPost] = useState({
             </div>
           ))}
         </td>
-                    
+              
                     </tr>
                 </tbody>
               );

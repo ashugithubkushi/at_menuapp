@@ -300,7 +300,7 @@ function Login() {
              <br />
              
             <div className='forgot-password  mt-3 text-end'>
-              <Link to="/forgotpassword">Forgot password?</Link>
+              <Link to="/passwordreset">Forgot password?</Link>
             </div>
 
             <Link

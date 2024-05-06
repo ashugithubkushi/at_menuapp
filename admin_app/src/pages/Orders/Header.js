@@ -16,6 +16,7 @@ const Header = ({ showCounts, pendingCount, inProgressCount, orderedCount }) => 
             {showCounts && (
               <>
                 <li className="nav-item">
+
                   <Link className="nav-link" to="/pending">
                     Pending {pendingCount > 0 && <span className="badge bg-primary">{pendingCount}</span>}
                   </Link>

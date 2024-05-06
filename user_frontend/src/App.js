@@ -2,8 +2,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import Sidebar from './Component/Sidebar';
-import Forgotpassword from './Pages/Forgotpassword/Forgotpassword';
-import Resetpassword from './Pages/Resetpassword/Resetpassword';
+// import Resetpassword from './Pages/Resetpassword/Resetpassword';
 // import MainLayout from './Component/MainLayout';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Listscomponents from './Pages/Listscomponents/Listscomponents';
@@ -16,6 +15,7 @@ import IncDec from './Pages/IncDec';
 import Both from './Pages/Both';
 import DropdownPerson from './Pages/DropdownPerson';
 import NumberDropdown from './Pages/NumberDropdown';
+import PasswordReset from './Pages/Forgotpassword/PasswordReset';
 // import MainLayout from './Component/MainLayout';
 // import Orders from './Pages/Orders/Orders';
 // import RegisteredData from './Pages/RegisteredData/RegisteredData';
@@ -32,8 +32,8 @@ function App() {
     <Route path="/register" element={<Register/>} />
     {/* <Route path="/registereddata" element={<RegisteredData/>} /> */}
     <Route path="/ticket" element={<Ticket/>} />
-    <Route path="/forgotpassword" element={<Forgotpassword/>} />
-    <Route path="/resetpassword" element={<Resetpassword/>} />
+    <Route path="/passwordreset" element={<PasswordReset/>} />
+    {/* <Route path="/resetpassword" element={<Resetpassword/>} /> */}
     <Route path="/listscomponents" element={<Listscomponents/>} />
     <Route path="/dropdown" element={<Dropdown/>} />
     <Route path="/incdec" element={<IncDec/>} />
