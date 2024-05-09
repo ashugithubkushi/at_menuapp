@@ -1,7 +1,11 @@
-
-
 form{
     padding: 20px;
+}
+
+.register{
+    background-image: url(C:\Users\KITS\atmos_form_dev\user_app\src\assets\images\beautiful-nature-view-green-leaf-on-blurred-greenery-background-under-sunlight-with-bokeh-and-shadow-and-copy-space-using-as-background-natural-plants-landscape-ecology-wallpaper-conc.jpg);
+    background-size: cover; /* Cover the entire element */
+  background-position: center; /* Center the background image */
 }
   
   .register-form {

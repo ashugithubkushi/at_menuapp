@@ -7,24 +7,26 @@ import { useParams } from "react-router-dom";
 
 import { Box } from "@mui/material";
 import Sidebar from "../../Sidebar";
-import './registerdata.css'
+// import './adminregisterdata.css'
 import Header from "../Orders/Header";
+import Dashboard from "../Dashboard/Dashboard";
 
-const RegisterData = () => {
+const AdminRegisterData = () => {
   const { id } = useParams();
   const [tableData, setTableData] = useState([]); 
-  const [totalRegisterDataCount, setTotalRegisterDataCount] = useState(0);
+  const [totalAdminRegisterDataCount, setTotalAdminRegisterDataCount] = useState(0);
 
+  //
+  
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/registerData")
+      .get("http://localhost:3000/adminRegisterData")
       // .then((result) => setTableData(result.data))
       .then((response)=> {
 
         const totalCount = response.data.length;
-        setTotalRegisterDataCount(totalCount);
-
+        setTotalAdminRegisterDataCount(totalCount);
 
         setTableData(response.data);
       })
@@ -43,6 +45,9 @@ const RegisterData = () => {
 
   return (
     <>
+     {/* <Dashboard */}
+      
+  {/* /> */}
     <Header showCounts={false}/>
     <Box sx={{ display: "flex" }}>
       <Sidebar />
@@ -51,6 +56,8 @@ const RegisterData = () => {
           Logout
         </Link> */}
       </div>
+
+      
 
       {/* <div className="w-100 vh-100 justify-content-center align-items-center"> */}
         {/* <div className="w-100"> */}
@@ -94,5 +101,5 @@ const RegisterData = () => {
   );
 };
 
-export default RegisterData;
+export default AdminRegisterData;
 

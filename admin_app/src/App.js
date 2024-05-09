@@ -22,7 +22,13 @@ import OrderDetails from "./OrderDetails/OrderDetails";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// import Headers from "./components/Layouts/Headers";
+import Headers from "./components/Layouts/Headers";
+import Adminpasswordreset from "./pages/Forgotpassword/Adminpasswordreset";
+import AdminRegisterData from "./pages/AdminRegisterData/AdminRegisterData";
+import LoginButton from "./pages/Home/LoginButton";
+import LogoutButton from "./pages/Home/LogoutButton";
+import Profile from "./pages/Home/Profile";
+import Registerr from "./pages/Register/Registerr";
 
 
 
@@ -65,7 +71,18 @@ function App() {
         <Route path="/abouut" element={<Abouut />} />
         <Route path='/orders' element={<Orders/>} />
         {/* <Route path='/sidebar' element={<Sidebar/>} /> */}
-        {/* <Route path='/header' element={<Headers/>} /> */}
+        <Route path='/header' element={<Headers/>} />
+        <Route path='/registerr' element={<Registerr/>} />
+        <Route path='/adminpasswordreset' element={<Adminpasswordreset/>} />
+        <Route path='/adminregisterdata' element={<AdminRegisterData/>} />
+        
+
+        {/*  */}
+        <Route path='/loginbutton' element={<LoginButton/>} />
+        <Route path='/logoutbutton' element={<LogoutButton/>} />
+        <Route path='/profile' element={<Profile/>} />
+        {/*  */}
+
 
         <Route path="/menu" element={<Menu />} />
         <Route path="/bell" element={<Bell/>} />

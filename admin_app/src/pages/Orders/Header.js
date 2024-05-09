@@ -1,40 +1,38 @@
-// Header.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
 import './header.css';
 
-const Header = ({ showCounts, pendingCount, inProgressCount, orderedCount }) => {
+const Header = ({ showCounts, pendingCount, inProgressCount, orderedCount, toggleSidebar, username }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        {/* <Link className="navbar-brand" to="/">Your Logo</Link> */}
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" onClick={toggleSidebar}>
+          <MenuIcon />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             {showCounts && (
               <>
                 <li className="nav-item">
-
                   <Link className="nav-link" to="/pending">
-                    Pending {pendingCount > 0 && <span className="badge bg-primary">{pendingCount}</span>}
+                    Pending <span className={`badge ${pendingCount > 0 ? 'bg-primary' : 'bg-secondary'}`}>{pendingCount}</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/in-progress">
-                    In Progress {inProgressCount > 0 && <span className="badge bg-warning">{inProgressCount}</span>}
+                    In Progress <span className={`badge ${inProgressCount > 0 ? 'bg-warning' : 'bg-secondary'}`}>{inProgressCount}</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/ordered">
-                    Ordered {orderedCount > 0 && <span className="badge bg-success">{orderedCount}</span>}
+                    Ordered <span className={`badge ${orderedCount > 0 ? 'bg-success' : 'bg-secondary'}`}>{orderedCount}</span>
                   </Link>
                 </li>
               </>
             )}
             <li className="nav-item">
-              <button className="btn btn-outline-primary me-2" type="button">User Name</button>
+              {/* <div className="btn btn-outline-primary me-2" type="button">{username}</div> */}
               <Link className="btn btn-outline-danger" to="/">Logout</Link>
             </li>
           </ul>
@@ -42,6 +40,7 @@ const Header = ({ showCounts, pendingCount, inProgressCount, orderedCount }) => 
       </div>
     </nav>
   );
+  
 };
 
 export default Header;

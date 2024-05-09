@@ -62,6 +62,11 @@ const Orders = () => {
         setOrders(result.data);
         // console.log(orders);
         // setTotalOrdersCount(result.data.length);
+        
+        // 
+        const totalCount = result.data.length;
+        setTotalOrdersCount(totalCount);
+        
         countStatus(result.data);
       })
       .catch((err) => console.log(err));
@@ -155,17 +160,6 @@ const [post, setPost] = useState({
 
 <Sidebar/>
 
-{/* <Box component="main" sx={{fllexGrow:1,p:3}}> */}
- {/* <Layout> */}
-
-      {/* <div className="w-100 vh-100 justify-content-center align-items-center mt-5"> */}
-      {/* <div className="d-flex vh-100 bg-secondary justify-content-center align-items-center"> */}
-        {/* <div className="w-100"> */}
-        {/* <div className="w-50 bg-white rounded p-3"> */}
-          {/* <Link to="/login" className="btn btn-success float-end">
-            Logout
-          </Link> */}
-
           <table>
             <thead>
               <tr>
@@ -229,7 +223,8 @@ const [post, setPost] = useState({
 
 
                     <td class="status-btn" rowSpan={2}>
-                      {new Date(item.orderDateTime).toLocaleString(undefined, {
+                      {new Date(item.orderDateTime).toLocaleString(undefined, 
+                      {
                         timeZone: "Asia/Kolkata",
                       })}
                     </td>
@@ -245,7 +240,7 @@ const [post, setPost] = useState({
             </div>
           ))}
         </td>
-              
+                    
                     </tr>
                 </tbody>
               );
