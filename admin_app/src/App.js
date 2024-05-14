@@ -29,6 +29,7 @@ import LoginButton from "./pages/Home/LoginButton";
 import LogoutButton from "./pages/Home/LogoutButton";
 import Profile from "./pages/Home/Profile";
 import Registerr from "./pages/Register/Registerr";
+import UsernameDisplay from "./pages/UsernameDisplay/UsernameDisplay";
 
 
 
@@ -90,9 +91,11 @@ function App() {
         {/* <Route path="testdropdown" element={<Testdropdown/>} /> */}
         {/* <Route path='/lineChat' element={<LineChat/>}/> */}
         {/* <Route path='/pieChat' element={<PieChat/>}/> */}
-        <Route path='/dashboard' element={<Dashboard totalOrdersCount={totalOrdersCount} />} />
+        <Route path='/dashboard' element={<Dashboard  />} />
         <Route path='/registerdata' element={<RegisterData/>} />
         <Route path='/orderdetails' element={<OrderDetails/>} />
+
+        <Route path='/usernamedisplay' element={<UsernameDisplay/>} />
       </Routes>
       </div>
       </div>

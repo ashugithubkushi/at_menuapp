@@ -17,7 +17,8 @@ const Registerr = () => {
   const [registrationError, setRegistrationError] = useState('');
 
   const validateUsername = (username) => {
-    const regex = /^[a-zA-Z0-9]+$/;
+    // const regex = /^[a-zA-Z0-9]+$/;
+    const regex = /^[a-zA-Z0-9\s]+$/;
     return regex.test(username);
   };
 

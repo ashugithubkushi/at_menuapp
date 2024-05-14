@@ -6,6 +6,9 @@ import axios from "axios";
 function Login() {
   const navigate = useNavigate();
 
+  const [username, setUsername] = useState('');
+  const [usernameError, setUsernameError] = useState('');
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -14,6 +17,12 @@ function Login() {
   const [loginError, setLoginError] = useState("");
   const [user, setUser] = useState(null);
 
+
+  
+  const validateUsername = (username) => {
+    const regex = /^[a-zA-Z0-9]+$/;
+    return regex.test(username);
+  };
   const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
@@ -32,6 +41,12 @@ function Login() {
 
     setLoginError("");
 
+
+    if (!validateUsername(username)) {
+      setUsernameError('Username is required');
+      return;
+    }
+
     if (!validateEmail(email)) {
       setEmailError("Please enter a valid email address");
       return;
@@ -45,39 +60,63 @@ function Login() {
     }
 
     // Submit the form data to your backend using axios
-    axios
-      .post("http://localhost:3000/user", {
-        email,
-        password,
-      })
-      .then((response) => {
-        //
-        const { username } = response.data;
-        setUser(username);
-        console.log(response);
+    // axios
+    //   .post("http://localhost:3000/createUser", {
+    //     username,
+    //     email,
+    //     password,
+    //   })
+    //   .then((response) => {
+    //     //
+    //     const { username } = response.data;
+    //     setUser(username);
+    //     console.log(response);
 
-        if (response.data.isAuthenticated) {
-          alert("Logged in successfully");
-          navigate("/dashboard");
-        } else {
-          alert("Unauthorized user"); // Show error message for unauthorized user
-          }
-      })
-      .catch((error) => {
-        // Check if the error is due to unauthorized access (401 status code)
-        if (error.response && error.response.status === 401) {
-          // Handle unauthorized access
-          alert("Unauthorized user, Kindly register and try for login");
-          setEmail("");
-          setPassword("");
-          //
-          // setLoginError("Invalid email or password");
-        } else {
-          // Handle other errors
-          console.error(error);
-          alert("An error occurred. Please try again later.");
-        }
-      });
+    //     if (response.data.isAuthenticated) {
+    //       alert("Logged in successfully");
+    //       navigate("/dashboard");
+    //     } else {
+    //       alert("Unauthorized user"); // Show error message for unauthorized user
+    //       }
+    //   })
+    //   .catch((error) => {
+    //     // Check if the error is due to unauthorized access (401 status code)
+    //     if (error.response && error.response.status === 401) {
+    //       // Handle unauthorized access
+    //       alert("Unauthorized user, Kindly register and try for login");
+    //       setUsername('');
+    //       setEmail('');
+    //       setPassword('');
+    //       //
+    //       // setLoginError("Invalid email or password");
+    //     } else {
+    //       // Handle other errors
+    //       console.error(error);
+    //       alert("An error occurred. Please try again later.");
+    //     }
+    //   });
+    axios.post("http://localhost:3000/createUser", {
+      username,
+      email,
+      password
+    })
+    .then((response) => {
+      console.log(response);
+      alert("Loggedin successfully");
+      navigate("/dashboard", { state: { username: response.data.username } }); // Pass the username to the home page
+    })
+    .catch((error) => {
+      if (error.response && error.response.status === 409) {
+        setLoginError('');
+        alert("Email already exists");
+        setUsername('');
+        setEmail('');
+        setPassword('');
+      } else {
+        console.error(error);
+        // Handle other errors
+      }
+    });
   };
 
   return (
@@ -89,6 +128,19 @@ function Login() {
           <form onSubmit={handleSubmit}>
             <h2 className="text-white text-center">Login Form</h2>
             <br />
+
+            <div>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter username"
+            />
+            <div className="error">{usernameError}</div>
+          </div>
+
+          <br />
+
             <div>
               {/* <label>Email:</label> */}
               <input

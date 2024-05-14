@@ -1,6 +1,7 @@
 /* Dashboard container */
 .container-fluid {
     padding: 0;
+    color: #edeaef;
   }
   
   /* Each column */
@@ -45,5 +46,18 @@
   .badge {
     font-size: 1.2rem;
     vertical-align: middle;
+    background-color: rgba(39, 8, 60, 0.2);
   }
   
+
+  /* .atmos-header {
+    background-image: url('C:\Users\KITS\at_menuapp\admin_app\src\image\Vector Smart Object 1.png');
+    background-repeat: no-repeat;
+    
+  } */
+
+  .logo img {
+    background-image: url("C:\Users\KITS\at_menuapp\admin_app\src\image\Vector Smart Object 1.png");
+    width: 100px; /* Adjust the width of the logo */
+    height: 100px; /* Adjust the height of the logo */
+  }

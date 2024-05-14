@@ -53,13 +53,6 @@ app.post("/createOrder", (req, res) => {
 // })
 
 
-
-app.post("/createUser", (req, res) => {
-    console.log('mydata',req.body)
-    UserModel.create(req.body)
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
-})
 app.post("/createLogin", (req, res) => {
     console.log('mydata',req.body)
     LoginModel.create(req.body)
@@ -75,18 +68,41 @@ app.get('/registerData', (req, res) => {
     .catch(err => res.status(500).json({ message: err.message }));
 });
 
+// profile
+// 1
+// app.get('/users', (req, res) => {
+//     UserModel.find({})
+//     .then(data => res.json(data))
+//     .catch(err => res.status(500).json({ message: err.message }));
+// });
+
+// 2
+app.get("/users", (req, res) => {
+    UserModel.find()
+      .then(users => res.json(users))
+      .catch(err => res.status(500).json({ error: err.message }));
+  });
+
 //admin
 app.get('/adminRegisterData', (req, res) => {
     AdminRegisterDataModel.find({})
     .then(data => res.json(data))
     .catch(err => res.status(500).json({ message: err.message }));
 });
-// app.post("/createRegisterData", (req, res) => {
-//     console.log('mydata',req.body)
-//     RegisterDataModel.create(req.body)
-//     .then(users => res.json(users))
-//     .catch(err => res.json(err))
-// })
+app.post("/createRegisterData", (req, res) => {
+    console.log('mydata',req.body)
+    RegisterDataModel.create(req.body)
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
+
+//profile
+app.post("/createUser", (req, res) => {
+    console.log('mydata',req.body)
+    UserModel.create(req.body)
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
 app.post("/createRegisterData", async (req, res) => {
     try {
         const existingUser = await RegisterDataModel.findOne({ email: req.body.email });
@@ -110,14 +126,15 @@ app.post("/createRegisterData", async (req, res) => {
 // Create a new admin registration data
 app.post("/createAdminRegisterData", async (req, res) => {
     try {
-        const existingUser = await AdminRegisterDataModel.findOne({ email: req.body.email });
-        if (existingUser) {
-            // Email already exists, return an error response
-            return res.status(409).json({ message: "Email already exists" });
+        const { email, password } = req.body;
+        // Check if the user exists in the AdminRegisterDataModel collection
+        const user = await AdminRegisterDataModel.findOne({ email, password });
+        if (user) {
+            // User is authenticated, return success response
+            return res.status(200).json({ isAuthenticated: true });
         } else {
-            // Email doesn't exist, create a new registration entry
-            const newUser = await AdminRegisterDataModel.create(req.body);
-            return res.status(201).json(newUser);
+            // Unauthorized user, return specific error response
+            return res.status(401).json({ isAuthenticated: false, message: "Invalid email or password" });
         }
     } catch (error) {
         // Handle any errors
