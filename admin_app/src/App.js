@@ -2,8 +2,6 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Layout from "./components/Layouts/Layout";
-import Home from "./pages/Home/Home";
 // import Contact from './pages/Contact';
 import Pagenotfound from "./pages/Pagenotfound";
 import Abouut from "./components/Abouut";
@@ -19,60 +17,52 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Orders from "./pages/Orders/Orders";
 import RegisterData from "./pages/RegisterData/RegisterData";
 import OrderDetails from "./OrderDetails/OrderDetails";
-import axios from "axios";
-import { useEffect, useState } from "react";
 
-import Headers from "./components/Layouts/Headers";
 import Adminpasswordreset from "./pages/Forgotpassword/Adminpasswordreset";
 import AdminRegisterData from "./pages/AdminRegisterData/AdminRegisterData";
 import LoginButton from "./pages/Home/LoginButton";
 import LogoutButton from "./pages/Home/LogoutButton";
 import Profile from "./pages/Home/Profile";
 import Registerr from "./pages/Register/Registerr";
-import UsernameDisplay from "./pages/UsernameDisplay/UsernameDisplay";
+import Header from "./pages/Orders/Header";
 
 
 
 
 function App() {
-  const [totalOrdersCount, setTotalOrdersCount] = useState(0);
 
-  useEffect(() => {
-    // Fetch orders count from backend
-    const fetchOrdersCount = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/ordersCount");
-        setTotalOrdersCount(response.data.totalOrdersCount);
-      } catch (error) {
-        console.error("Error fetching orders count:", error);
-      }
-    };
 
-    fetchOrdersCount();
-  }, []);
+
+  
+
+
+  
   
   return (
-    
+   
     <BrowserRouter>
      
 
 
-     {/* <div><Navbar/></div> */}
+     
 
-   <div className="d-flex">
+   <div className="d-flex"
+   sx={{ margin: "64px" , }}>
     {/* <div className="w-auto"> */}
-      {/* <Sidebar/> */}
+      <Sidebar/>
    
     {/* </div> */}
-    <div className='col'>
-      
+    <div className='col'
+    
+    >
+<Navbar sx={{ margin: "10px" , }} />
+
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path='/home' element={<Home/>}/>
         <Route path="/abouut" element={<Abouut />} />
         <Route path='/orders' element={<Orders/>} />
         {/* <Route path='/sidebar' element={<Sidebar/>} /> */}
-        <Route path='/header' element={<Headers/>} />
+        <Route path='/header' element={<Header/>} />
         <Route path='/registerr' element={<Registerr/>} />
         <Route path='/adminpasswordreset' element={<Adminpasswordreset/>} />
         <Route path='/adminregisterdata' element={<AdminRegisterData/>} />
@@ -95,7 +85,6 @@ function App() {
         <Route path='/registerdata' element={<RegisterData/>} />
         <Route path='/orderdetails' element={<OrderDetails/>} />
 
-        <Route path='/usernamedisplay' element={<UsernameDisplay/>} />
       </Routes>
       </div>
       </div>

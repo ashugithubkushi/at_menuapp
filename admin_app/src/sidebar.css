@@ -39,3 +39,14 @@
     z-index: 999;
   }
   
+
+  .text1 {
+    background-image: url('C:\Users\KITS\at_menuapp\admin_app\src\image\Vector Smart Object 1.png');
+  
+    background-size: 35px 35px; /* Set the height and width of the image */
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 50px;
+  font-size: xx-large;
+  color: #385a29;
+  }

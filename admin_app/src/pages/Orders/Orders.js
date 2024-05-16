@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import { Box } from '@mui/material';
 import Sidebar from '../../Sidebar'
 import Header from "./Header";
+import Navbar from "../../components/Navbar";
 // import Layout from "../../components/Layouts/Layout";
 
 const Orders = () => {
@@ -150,15 +151,16 @@ const [post, setPost] = useState({
 
 
 <>
+<Box sx={{ marginTop: "64px"}}>
 <Header showCounts={true}
   pendingCount={pendingCount}
   inProgressCount={inProgressCount}
   orderedCount={orderedCount}
 />
 
-<Box sx={{display: "flex"}}>
 
-<Sidebar/>
+{/* 
+<Sidebar/> */}
 
           <table>
             <thead>

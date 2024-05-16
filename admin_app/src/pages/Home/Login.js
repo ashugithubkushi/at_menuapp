@@ -38,7 +38,6 @@ function Login() {
     e.preventDefault();
     setEmailError("");
     setPasswordError("");
-
     setLoginError("");
 
 
@@ -95,20 +94,26 @@ function Login() {
     //       alert("An error occurred. Please try again later.");
     //     }
     //   });
+
+
     axios.post("http://localhost:3000/createUser", {
       username,
       email,
       password
     })
     .then((response) => {
+
+      const userData = response.data; // Assuming response.data contains user information
+      localStorage.setItem("user", JSON.stringify(userData));
+
       console.log(response);
-      alert("Loggedin successfully");
-      navigate("/dashboard", { state: { username: response.data.username } }); // Pass the username to the home page
+      // alert("Loggedin successfully");
+      // navigate("/dashboard", { state: { username: response.data.username } }); // Pass the username to the home page
     })
     .catch((error) => {
       if (error.response && error.response.status === 409) {
         setLoginError('');
-        alert("Email already exists");
+        // alert("Email already exists");
         setUsername('');
         setEmail('');
         setPassword('');
@@ -117,6 +122,24 @@ function Login() {
         // Handle other errors
       }
     });
+
+    axios.get("http://localhost:3000/adminRegisterData")
+    .then((response) => {
+      const registerData = response.data;
+      const userExists = registerData.some(data => data.username === username && data.email === email && data.password === password);
+      
+      if (userExists) {
+        alert("Logged in successfully");
+        navigate("/dashboard", { state: { username } });
+      } else {
+        setLoginError("Unauthorized user. Kindly register.");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("An error occurred. Please try again later.");
+    });
+
   };
 
   return (

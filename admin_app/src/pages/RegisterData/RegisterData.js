@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 import Sidebar from "../../Sidebar";
 import './registerdata.css'
 import Header from "../Orders/Header";
+import Navbar from "../../components/Navbar";
 
 const RegisterData = () => {
   const { id } = useParams();
@@ -43,9 +44,10 @@ const RegisterData = () => {
 
   return (
     <>
-    <Header showCounts={false}/>
-    <Box sx={{ display: "flex" }}>
-      <Sidebar />
+    {/* <Header showCounts={false}/> */}
+  
+    <Box sx={{ display: "flex" , marginTop: "64px" }}>
+      {/* <Sidebar /> */}
       <div>
         {/* <Link to="/login" className="btn btn-success float-end">
           Logout

@@ -1,63 +1,10 @@
-/* Dashboard container */
-.container-fluid {
-    padding: 0;
-    color: #edeaef;
+.dashboard-fixed {
+    /* position: fixed; */
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    z-index: 1000;   
+    height: 100vh;
   }
-  
-  /* Each column */
-  .col-md-6 {
-    padding: 10px;
-  }
-  
-  /* Links */
-  .nav-link {
-    color: #000;
-    text-decoration: none;
-  }
-  
-  /* Card styles */
-  .card-link {
-    background-color: #e7e0e0;
-    border: none;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    display: block;
-    text-decoration: none;
-  }
-  
-  .card-link:hover {
-    background-color: #d8d2d4;
-    transform: scale(0.95);
-  }
-  
-  /* Icon styles */
-  .card-icon {
-    font-size: 5rem;
-  }
-  
-  /* Text styles */
-  .card-title {
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  /* Badge styles */
-  .badge {
-    font-size: 1.2rem;
-    vertical-align: middle;
-    background-color: rgba(39, 8, 60, 0.2);
-  }
-  
 
-  /* .atmos-header {
-    background-image: url('C:\Users\KITS\at_menuapp\admin_app\src\image\Vector Smart Object 1.png');
-    background-repeat: no-repeat;
-    
-  } */
-
-  .logo img {
-    background-image: url("C:\Users\KITS\at_menuapp\admin_app\src\image\Vector Smart Object 1.png");
-    width: 100px; /* Adjust the width of the logo */
-    height: 100px; /* Adjust the height of the logo */
-  }
+  

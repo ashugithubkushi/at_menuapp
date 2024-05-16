@@ -10,6 +10,7 @@ import Sidebar from "../../Sidebar";
 // import './adminregisterdata.css'
 import Header from "../Orders/Header";
 import Dashboard from "../Dashboard/Dashboard";
+import Navbar from "../../components/Navbar";
 
 const AdminRegisterData = () => {
   const { id } = useParams();
@@ -48,9 +49,10 @@ const AdminRegisterData = () => {
      {/* <Dashboard */}
       
   {/* /> */}
-    <Header showCounts={false}/>
-    <Box sx={{ display: "flex" }}>
-      <Sidebar />
+    {/* <Header showCounts={false}/> */}
+
+    <Box sx={{ display: "flex" , marginTop: "64px" }}>
+      {/* <Sidebar /> */}
       <div>
         {/* <Link to="/login" className="btn btn-success float-end">
           Logout

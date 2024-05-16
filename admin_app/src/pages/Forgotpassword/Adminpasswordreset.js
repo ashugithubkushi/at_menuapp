@@ -5,6 +5,9 @@ import './adminpasswordreset.css'
 
 function AdminpasswordReset() {
   const navigate = useNavigate();
+
+ 
+
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
@@ -74,6 +77,8 @@ function AdminpasswordReset() {
       alert('Please verify your email first');
     }
   };
+
+
 
   return (
     <div className="password-reset py-5" style={{ minHeight: '100vh' }}>

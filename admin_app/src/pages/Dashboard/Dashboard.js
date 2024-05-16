@@ -12,6 +12,7 @@ import AdminRegisterData from "../AdminRegisterData/AdminRegisterData";
 import axios from "axios";
 import { Bar, Line } from "react-chartjs-2";
 import './dashboard.css'
+import Navbar from "../../components/Navbar";
 
 const Dashboard = () => {
   const [totalAdminRegisterDataCount, setTotalAdminRegisterDataCount] =
@@ -87,21 +88,23 @@ const Dashboard = () => {
   };
 
   return (
-    <>
-      <Header showCounts={false} />
-      <Box sx={{ display: "flex" }}>
-        <Sidebar />
-        <div className="container-fluid" style={{ backgroundColor: "#edeaef" }}>
+    
+    <div className="dashboard-fixed d-flex">
+     
+      {/* <Header showCounts={false} /> */}
+      <Box sx={{ display: "flex" , marginTop: "64px"}}>
+        <div  style={{ backgroundColor: "#edeaef" }}>
+        {/*  */}
           <div className="row m-4">
             {/* Order data */}
             <div class="atmos-header">
-              <h2 className="text" style={{ color: "black" }} >Dashboard</h2>
+              <h2  style={{ color: "black" }} >Dashboard</h2>
             </div>
             {/* <div class="logo">
   <img src="C:\Users\KITS\at_menuapp\admin_app\src\image\Vector Smart Object 1.png" alt="Logo">DASHBOARD</img>
 </div> */}
-            <div className="col-sm-3">
-              <Link to="/orders" className="p-3">
+            <div className="col-md-4">
+            <div to="/orders" className="p-3">
                 <div
                   className="d-flex justify-content-between p-5 mb-5 mr-5 align-items-center  border-secondary shadow-sm"
                   style={{
@@ -135,12 +138,13 @@ const Dashboard = () => {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </div>
             </div>
 
             {/* Register data */}
-            <div className="col-sm-3">
-              <Link to="/registerdata" className="p-3 ">
+            <div className="col-md-4">
+              {/* <Link to="/registerdata" className="p-3 "> */}
+              <div to="/registerdata" className="p-3 ">
                 <div
                   className="d-flex justify-content-between p-5 mb-5 mr-5 align-items-center  border-secondary shadow-sm"
                   style={{
@@ -169,18 +173,19 @@ const Dashboard = () => {
                       className="fw-bold fs-5"
                       style={{ fontSize: "1.5rem", color: "#674ae6" }}
                     >
-                      User Register count
+                     User Register count
                       {/*  */}
                       <h2> {totalRegisterDataCount}</h2>
                     </span>
                   </div>
                 </div>
-              </Link>
+              {/* </Link> */}
+              </div>
             </div>
 
             {/* Register data */}
-            <div className="col-sm-3">
-              <Link to="/adminregisterdata" className="p-3 ">
+            <div className="col-md-4">
+              <div to="/adminregisterdata" className="p-3 ">
                 <div
                   className="d-flex justify-content-between p-5 mb-5 mr-5 align-items-center  border-secondary shadow-sm"
                   style={{
@@ -215,12 +220,12 @@ const Dashboard = () => {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </div>
             </div>
 
             {/* Register data */}
-            <div className="col-sm-3">
-              <Link to="/adminregisterdata" className="p-3 ">
+            {/* <div className="col-md-4">
+              <div to="/adminregisterdata" className="p-3 ">
                 <div
                   className="d-flex justify-content-between p-5 mb-5 mr-5 align-items-center  border-secondary shadow-sm"
                   style={{
@@ -250,13 +255,12 @@ const Dashboard = () => {
                       style={{ fontSize: "1.5rem", color: "#cf8867" }}
                     >
                       Admin Register count
-                      {/*  */}
                       <h2> {totalAdminRegisterDataCount}</h2>
                     </span>
                   </div>
                 </div>
-              </Link>
-            </div>
+              </div>
+            </div> */}
 
             {/* Area graph */}
   
@@ -319,7 +323,7 @@ const Dashboard = () => {
           </div>
         </div>
       </Box>
-    </>
+    </div>
   );
 };
 

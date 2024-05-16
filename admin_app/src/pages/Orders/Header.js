@@ -13,30 +13,8 @@ const Header = ({ showCounts, pendingCount, inProgressCount, orderedCount, toggl
 
 
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:3000/users")
-  //     .then(response => {
-  //       setUsers(response.data); // Assuming setUsers is a state setter function to update user data
-  //     })
-  //     .catch(error => {
-  //       console.error("Error fetching users:", error);
-  //     });
-  // }, []);
-  
-  useEffect(() => {
-    axios.get("http://localhost:3000/users")
-      .then(response => {
-        const loggedInUser = response.data.find(user => user.username === username);
-        if (loggedInUser) {
-          setUsers([loggedInUser]); // Display only the logged-in user
-        } else {
-          console.error("Logged-in user not found in the response data.");
-        }
-      })
-      .catch(error => {
-        console.error("Error fetching users:", error);
-      });
-  }, [username]);
+
+    
   
   return (
     // <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -48,7 +26,8 @@ const Header = ({ showCounts, pendingCount, inProgressCount, orderedCount, toggl
         <div className="collapse navbar-collapse" id="navbarSupportedContent"
     style={{ backgroundColor: '#fff' }}
     >
-          <ul className="navbar-nav ms-auto mb-lg-0">
+          <ul className="navbar-nav mb-md-0">
+            {/* ms-auto --- removed  */}
             {showCounts && (
               <>
                 <li className="nav-item">
@@ -70,21 +49,17 @@ const Header = ({ showCounts, pendingCount, inProgressCount, orderedCount, toggl
             )}
             <li className="nav-item">
            
-             <div className='d-flex'> <h2 className='text' style={{color: "black"}}>
+             <div className='d-flex'> <h2 style={{color: "black"}}>
              {/* <button type="submit" className="search-button">Search</button> */}
-             <h4>User profile:</h4>
+             {/* <h4>User profile:</h4> */}
               {/* <div className="btn btn-outline-primary me-5" type="button">{username}</div> */}
-              <div>
-      {users.map(user => (
-        <h5 key={user._id}> Name - {user.username} <br /> email - {user.email}</h5>
-      ))}
-    </div>
+            
               </h2>
               </div>
             </li>
             
           </ul>
-          <Link className="btn btn-danger float-end" to="/">Logout</Link>
+          {/* <Link className="btn btn-danger float-end" to="/">Logout</Link> */}
         </div>
       </div>
     </nav>
